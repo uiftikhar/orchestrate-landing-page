@@ -1,65 +1,112 @@
-import Image from "next/image";
+"use client";
+
+import { Heading, Text, Button } from "@/components/ui";
+import { Navigation } from "@/components/Navigation";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Navigation />
+      <main>
+        {/* Hero Section */}
+        <section className="w-full bg-gray-50 min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-80px)] flex">
+          <div className="max-w-[1440px] mx-auto w-full">
+            {/* Mobile Layout (< 768px) */}
+            <div className="block md:hidden space-y-8 px-5 py-14">
+              <div className="space-y-6">
+                <Heading
+                  as="h1"
+                  className="text-[40px] leading-[1.1] font-bold tracking-tight"
+                >
+                  Product execution, augmented
+                </Heading>
+                <Text
+                  size="lg"
+                  variant="secondary"
+                  className="leading-relaxed max-w-md pt-5"
+                >
+                  Orchestrate is your agentic product strategist. It learns from
+                  every product change, proves what drives impact, and sharpens
+                  what you build next.
+                </Text>
+              </div>
+
+              <div className="flex flex-row gap-3">
+                <Button variant="primary" size="lg" fullWidth>
+                  Book a demo
+                </Button>
+                <Button variant="outline" size="lg" fullWidth>
+                  Talk to sales
+                </Button>
+              </div>
+            </div>
+
+            {/* Tablet Layout (768px - 1023px) */}
+            <div className="hidden md:block lg:hidden px-8">
+              <div className="flex items-center justify-between gap-12">
+                <div className="space-y-6 flex-1">
+                  <Heading
+                    as="h1"
+                    className="text-[56px] leading-[1.1] font-bold tracking-tight"
+                  >
+                    Product execution, augmented
+                  </Heading>
+                  <Text
+                    size="xl"
+                    variant="secondary"
+                    className="leading-relaxed max-w-xl"
+                  >
+                    Orchestrate is your agentic product strategist. It learns
+                    from every product change, proves what drives impact, and
+                    sharpens what you build next.
+                  </Text>
+                </div>
+
+                <div className="flex flex-col gap-3 min-w-[200px]">
+                  <Button variant="primary" size="lg">
+                    Book a demo
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    Talk to sales
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Layout (>= 1024px) */}
+            <div className="hidden lg:block px-30">
+              <div className="flex items-center justify-between gap-16">
+                <div className="space-y-6 flex-1 max-w-2xl">
+                  <Heading
+                    as="h1"
+                    className="text-[64px] leading-[1.1] font-bold tracking-tight"
+                  >
+                    Product execution, augmented
+                  </Heading>
+                  <Text
+                    size="xl"
+                    variant="secondary"
+                    className="leading-relaxed text-[18px]"
+                  >
+                    Orchestrate is your agentic product strategist. It learns
+                    from every product change, proves what drives impact, and
+                    sharpens what you build next.
+                  </Text>
+                </div>
+
+                <div className="flex gap-4 items-center">
+                  <Button variant="primary" size="lg" className="whitespace-nowrap">
+                    Book a demo
+                  </Button>
+                  <Button variant="outline" size="lg" className="whitespace-nowrap">
+                    Talk to sales
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+    </>
   );
 }

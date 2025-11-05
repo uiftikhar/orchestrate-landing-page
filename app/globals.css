@@ -1,26 +1,558 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   DESIGN TOKENS - Color System
+   ============================================ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  /* Gray Scale */
+  --gray-0: rgb(255, 255, 255);
+  --gray-50: rgb(250, 250, 250);
+  --gray-100: rgb(245, 245, 245);
+  --gray-200: rgb(229, 229, 229);
+  --gray-300: rgb(212, 212, 212);
+  --gray-400: rgb(163, 163, 163);
+  --gray-500: rgb(115, 115, 115);
+  --gray-600: rgb(82, 82, 82);
+  --gray-700: rgb(64, 64, 64);
+  --gray-800: rgb(38, 38, 38);
+  --gray-900: rgb(23, 23, 23);
+  --gray-950: rgb(10, 10, 10);
+
+  /* Purple Scale */
+  --purple-50: rgb(245, 243, 255);
+  --purple-100: rgb(237, 233, 254);
+  --purple-200: rgb(221, 214, 254);
+  --purple-300: rgb(195, 182, 253);
+  --purple-400: rgb(168, 139, 250);
+  --purple-500: rgb(139, 92, 246);
+  --purple-600: rgb(124, 58, 237);
+  --purple-700: rgb(109, 40, 217);
+  --purple-800: rgb(91, 33, 182);
+  --purple-900: rgb(76, 29, 149);
+  --purple-950: rgb(46, 16, 101);
+
+  /* Green Scale */
+  --green-50: rgb(232, 252, 239);
+  --green-100: rgb(220, 252, 231);
+  --green-200: rgb(187, 247, 208);
+  --green-300: rgb(135, 239, 172);
+  --green-400: rgb(73, 222, 128);
+  --green-500: rgb(34, 197, 93);
+  --green-600: rgb(23, 163, 74);
+  --green-700: rgb(23, 128, 61);
+  --green-800: rgb(22, 100, 52);
+  --green-900: rgb(20, 83, 45);
+  --green-950: rgb(5, 46, 22);
+
+  /* Red Scale */
+  --red-50: rgb(254, 246, 246);
+  --red-100: rgb(254, 231, 230);
+  --red-200: rgb(254, 215, 215);
+  --red-300: rgb(253, 185, 185);
+  --red-400: rgb(248, 113, 113);
+  --red-500: rgb(239, 68, 68);
+  --red-600: rgb(220, 38, 37);
+  --red-700: rgb(200, 30, 29);
+  --red-800: rgb(160, 28, 28);
+  --red-900: rgb(127, 28, 29);
+  --red-950: rgb(69, 10, 10);
+
+  /* Alpha Values */
+  --alpha-50: rgba(10, 10, 10, 0.05);
+  --alpha-100: rgba(10, 10, 10, 0.08);
+  --alpha-200: rgba(10, 10, 10, 0.16);
+  --alpha-300: rgba(10, 10, 10, 0.24);
+  --alpha-400: rgba(10, 10, 10, 0.3);
+  --alpha-500: rgba(10, 10, 10, 0.4);
+  --alpha-600: rgba(10, 10, 10, 0.5);
+  --alpha-700: rgba(10, 10, 10, 0.6);
+  --alpha-800: rgba(10, 10, 10, 0.7);
+  --alpha-900: rgba(10, 10, 10, 0.8);
+  --alpha-950: rgba(10, 10, 10, 0.9);
+
+  /* Inverted Alpha Values */
+  --alpha-inverted-50: rgba(255, 255, 255, 0.08);
+  --alpha-inverted-100: rgba(255, 255, 255, 0.12);
+  --alpha-inverted-200: rgba(255, 255, 255, 0.16);
+  --alpha-inverted-300: rgba(255, 255, 255, 0.24);
+  --alpha-inverted-400: rgba(255, 255, 255, 0.3);
+  --alpha-inverted-500: rgba(255, 255, 255, 0.4);
+  --alpha-inverted-600: rgba(255, 255, 255, 0.5);
+  --alpha-inverted-700: rgba(255, 255, 255, 0.6);
+  --alpha-inverted-800: rgba(255, 255, 255, 0.7);
+  --alpha-inverted-900: rgba(255, 255, 255, 0.8);
+  --alpha-inverted-950: rgba(255, 255, 255, 0.9);
+
+  /* Semantic Colors */
+  --background-default: rgb(255, 255, 255);
+  --background-neutral: rgb(247, 247, 247);
+  
+  --text-primary: rgb(10, 10, 10);
+  --text-secondary: rgba(10, 10, 10, 0.6);
+  --text-tertiary: rgba(10, 10, 10, 0.4);
+  
+  --text-inverted-primary: rgb(255, 255, 255);
+  --text-inverted-secondary: rgba(255, 255, 255, 0.7);
+  --text-inverted-tertiary: rgba(255, 255, 255, 0.4);
+
+  /* ============================================
+     TYPOGRAPHY TOKENS
+     ============================================ */
+
+  /* Font Families */
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  --text-8xl: 6rem;        /* 96px */
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* ============================================
+     SPACING TOKENS
+     ============================================ */
+
+  --space-0: 0;
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-5: 1.25rem;    /* 20px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+  --space-32: 8rem;      /* 128px */
+
+  /* ============================================
+     BORDER RADIUS TOKENS
+     ============================================ */
+
+  --radius-none: 0;
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-base: 0.375rem; /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+
+  /* ============================================
+     SHADOW TOKENS
+     ============================================ */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ============================================
+     TRANSITION TOKENS
+     ============================================ */
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     Z-INDEX TOKENS
+     ============================================ */
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-default: rgb(10, 10, 10);
+    --background-neutral: rgb(23, 23, 23);
+    
+    --text-primary: rgb(255, 255, 255);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-tertiary: rgba(255, 255, 255, 0.4);
+    
+    --text-inverted-primary: rgb(10, 10, 10);
+    --text-inverted-secondary: rgba(10, 10, 10, 0.6);
+    --text-inverted-tertiary: rgba(10, 10, 10, 0.4);
   }
 }
 
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background-default);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-normal);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ============================================
+   TYPOGRAPHY STYLES
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, var(--text-6xl));
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, var(--text-5xl));
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 3vw, var(--text-4xl));
+  font-weight: var(--font-bold);
+  line-height: var(--leading-snug);
+}
+
+h4 {
+  font-size: clamp(1.5rem, 2.5vw, var(--text-3xl));
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-snug);
+}
+
+h5 {
+  font-size: clamp(1.25rem, 2vw, var(--text-2xl));
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-normal);
+}
+
+h6 {
+  font-size: clamp(1rem, 1.5vw, var(--text-xl));
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-normal);
+}
+
+p {
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+strong, b {
+  font-weight: var(--font-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--text-sm);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-inverted-primary {
+  color: var(--text-inverted-primary);
+}
+
+.text-inverted-secondary {
+  color: var(--text-inverted-secondary);
+}
+
+.text-inverted-tertiary {
+  color: var(--text-inverted-tertiary);
+}
+
+.bg-default {
+  background-color: var(--background-default);
+}
+
+.bg-neutral {
+  background-color: var(--background-neutral);
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Base: 0-319px */
+@media (min-width: 0px) and (max-width: 319px) {
+  .hidden-base {
+    display: none !important;
+  }
+}
+
+/* Small: 320px-767px */
+@media (min-width: 320px) and (max-width: 767px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+
+/* Medium: 768px-959px */
+@media (min-width: 768px) and (max-width: 959px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+/* Large: 960px-1199px */
+@media (min-width: 960px) and (max-width: 1199px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+
+/* Extra Large: 1200px-1535px */
+@media (min-width: 1200px) and (max-width: 1535px) {
+  .hidden-xl {
+    display: none !important;
+  }
+}
+
+/* 2 Extra Large: 1536px+ */
+@media (min-width: 1536px) {
+  .hidden-2xl {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-medium) ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-medium) ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--transition-medium) ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus-visible:focus-visible {
+  outline: 2px solid var(--purple-500);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: var(--radius-full);
+  border: 3px solid var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: var(--gray-900);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-600);
+    border-color: var(--gray-900);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+  }
 }
