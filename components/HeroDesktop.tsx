@@ -2,9 +2,9 @@ import { Heading, Text, Button } from "@/components/ui";
 
 export function HeroDesktop() {
   return (
-    <div className="hidden lg:block px-30">
-      <div className="flex items-center justify-between gap-16">
-        <div className="space-y-6 flex-1 max-w-2xl">
+    <main className="hidden lg:block px-30">
+      <section className="flex items-center justify-between gap-16">
+        <article className="space-y-6 flex-1 max-w-2xl">
           <Heading
             as="h1"
             className="text-[64px] leading-[1.1] font-bold tracking-tight"
@@ -20,7 +20,7 @@ export function HeroDesktop() {
             product change, proves what drives impact, and sharpens what you
             build next.
           </Text>
-        </div>
+        </article>
 
         <div className="flex gap-4 items-center">
           <Button variant="primary" size="lg" className="whitespace-nowrap">
@@ -30,8 +30,8 @@ export function HeroDesktop() {
             Talk to sales
           </Button>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

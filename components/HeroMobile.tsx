@@ -3,7 +3,7 @@ import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, Message
 
 export function HeroMobile() {
   return (
-    <section className="block md:hidden space-y-8 py-14">
+    <main className="block md:hidden space-y-8 py-14">
       <section className="flex flex-col gap-8 mb-15 px-5">
         <article className="flex flex-col gap-5">
           <Heading
@@ -61,26 +61,26 @@ export function HeroMobile() {
           </Text>
         </article>
 
-        <article className="flex flex-col gap-[10px]">
-          <div className="flex items-center gap-4">
-            <Database size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
-            <Text size="base" className="leading-relaxed" weight="medium" >
+        <ul className="flex flex-col gap-[10px]">
+          <li className="flex items-center gap-4">
+            <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
               Ranked by strategic impact and probability of success
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
-            <UserSearch size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
-            <Text size="base" className="leading-relaxed" weight="medium" >
+          </li>
+          <li className="flex items-center gap-4">
+            <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
               Evidence-based rationale for each recommendation
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
-            <LayoutList size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
-            <Text size="base" className="leading-relaxed" weight="medium" >
+          </li>
+          <li className="flex items-center gap-4">
+            <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
               Gets smarter with every shipped product change
             </Text>
-          </div>
-        </article>
+          </li>
+        </ul>
       </section>
 
       <section className="px-5 mb-15">
@@ -101,32 +101,32 @@ export function HeroMobile() {
             LOREM IPSUM
           </Text>
         </article>
-        <article className="flex flex-col gap-[10px]">
-          <div className="flex items-center gap-4">
-            <Calendar size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
-            <Text size="base" className="leading-relaxed" weight="medium" >
+        <ul className="flex flex-col gap-[10px]">
+          <li className="flex items-center gap-4">
+            <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
               Task Scheduling
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
-            <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
-            <Text size="base" className="leading-relaxed" weight="medium" >
+          </li>
+          <li className="flex items-center gap-4">
+            <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
               Lead assignment
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
-            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
-            <Text size="base" className="leading-relaxed" weight="medium" >
+          </li>
+          <li className="flex items-center gap-4">
+            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
               Triggered Notification
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
-            <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
-            <Text size="base" className="leading-relaxed" weight="medium" >
+          </li>
+          <li className="flex items-center gap-4">
+            <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
               Pre-built Templates
             </Text>
-          </div>
-        </article>
+          </li>
+        </ul>
       </section>
 
       <section className="px-5 my-15">
@@ -383,7 +383,7 @@ export function HeroMobile() {
             </CardFooter>
           </Card>
         </section>
-    </section>
+    </main>
   );
 }
 
