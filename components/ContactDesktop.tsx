@@ -22,8 +22,8 @@ export function ContactDesktop() {
 
         <div className="grid grid-cols-3 gap-8">
           {/* Address Card */}
-          <Card variant="outlined" padding="lg" className="border border-gray-200">
-            <CardContent className="space-y-4">
+          <Card padding="md" className="bg-gray-100 border-none">
+            <CardContent className="space-y-3">
               <div className="flex items-center justify-between">
                 <Heading as="h6" weight="semibold" className="text-base">
                   Address
@@ -38,41 +38,39 @@ export function ContactDesktop() {
             </CardContent>
           </Card>
 
-          {/* Contact Form Card */}
-          <Card variant="outlined" padding="lg" className="border border-gray-200">
-            <CardContent className="space-y-5">
-              <div>
-                <Text size="sm" weight="medium" className="mb-2">Your Name</Text>
-                <Input 
-                  placeholder="Jane Smith" 
-                  type="text"
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <Text size="sm" weight="medium" className="mb-2">Your Email</Text>
-                <Input 
-                  placeholder="jane@framer.com" 
-                  type="email"
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <Text size="sm" weight="medium" className="mb-2">Your Message</Text>
-                <Textarea 
-                  placeholder="Message..." 
-                  className="w-full min-h-[100px]"
-                />
-              </div>
-              <Button variant="primary" size="md" fullWidth>
-                Submit your message
-              </Button>
-            </CardContent>
-          </Card>
+          {/* Contact Form - NO CARD */}
+          <div className="space-y-5">
+            <div>
+              <Text size="sm" weight="semibold" className="text-gray-900">Your Name</Text>
+              <Input 
+                placeholder="Jane Smith" 
+                type="text"
+                className="w-full mt-[10px]"
+              />
+            </div>
+            <div>
+              <Text size="sm" weight="semibold" className="text-gray-900">Your Email</Text>
+              <Input 
+                placeholder="jane@framer.com" 
+                type="email"
+                className="w-full mt-[10px]"
+              />
+            </div>
+            <div>
+              <Text size="sm" weight="semibold" className="text-gray-900">Your Message</Text>
+              <Textarea 
+                placeholder="Message..." 
+                className="w-full min-h-[120px] mt-[10px]"
+              />
+            </div>
+            <Button variant="primary" size="md" fullWidth>
+              Submit your message
+            </Button>
+          </div>
 
           {/* Get in touch Card */}
-          <Card variant="outlined" padding="lg" className="border border-gray-200">
-            <CardContent className="space-y-4">
+          <Card padding="md" className="bg-gray-100 border-none">
+            <CardContent className="space-y-3">
               <div className="flex items-center justify-between">
                 <Heading as="h6" weight="semibold" className="text-base">
                   Get in touch
