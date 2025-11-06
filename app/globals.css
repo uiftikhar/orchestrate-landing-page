@@ -256,7 +256,8 @@ body {
    TYPOGRAPHY STYLES
    ============================================ */
 
-h1, h2, h3, h4, h5, h6 {
+/* Base heading styles - ONLY apply to headings without the .heading component class */
+h1:not(.heading), h2:not(.heading), h3:not(.heading), h4:not(.heading), h5:not(.heading), h6:not(.heading) {
   font-family: var(--font-display);
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
@@ -264,39 +265,39 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 {
+h1:not(.heading) {
   font-size: clamp(2.5rem, 5vw, var(--text-6xl));
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
 }
 
-h2 {
+h2:not(.heading) {
   font-size: clamp(2rem, 4vw, var(--text-5xl));
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
 }
 
-h3 {
+h3:not(.heading):not(.card-title) {
   font-size: clamp(1.75rem, 3vw, var(--text-4xl));
   font-weight: var(--font-bold);
   line-height: var(--leading-snug);
 }
 
-h4 {
+h4:not(.heading) {
   font-size: clamp(1.5rem, 2.5vw, var(--text-3xl));
   font-weight: var(--font-semibold);
   line-height: var(--leading-snug);
 }
 
-h5 {
+h5:not(.heading) {
   font-size: clamp(1.25rem, 2vw, var(--text-2xl));
   font-weight: var(--font-semibold);
   line-height: var(--leading-normal);
 }
 
-h6 {
+h6:not(.heading) {
   font-size: clamp(1rem, 1.5vw, var(--text-xl));
   font-weight: var(--font-semibold);
   line-height: var(--leading-normal);
@@ -364,6 +365,27 @@ small {
 .bg-neutral {
   background-color: var(--background-neutral);
 }
+
+/* Pricing Card Gradient Background */
+.bg-pricing-gradient {
+  background: linear-gradient(rgba(78, 134, 242, 0.05) 0%, rgba(255, 73, 128, 0.05) 100%);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* Badge Background */
+.bg-badge-light {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient Text */
+.text-gradient-purple-orange {
+  background-image: linear-gradient(90deg, rgb(83, 20, 163) 0%, rgb(244, 142, 47) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Heading component - Tailwind utilities work directly, no base font-size conflicts */
 
 .container {
   width: 100%;

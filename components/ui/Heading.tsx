@@ -90,6 +90,7 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
     const headingSize = size || Component;
     
     const classes = cn(
+      "heading", // Base class for higher specificity
       sizeClasses[headingSize],
       weightClasses[weight],
       variantClasses[variant],
