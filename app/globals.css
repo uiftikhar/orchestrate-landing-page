@@ -256,8 +256,8 @@ body {
    TYPOGRAPHY STYLES
    ============================================ */
 
-/* Base heading styles - ONLY apply to headings without the .heading component class */
-h1:not(.heading), h2:not(.heading), h3:not(.heading), h4:not(.heading), h5:not(.heading), h6:not(.heading) {
+/* Base heading styles - ONLY apply to headings without the .heading or .card-title component classes */
+h1:not(.heading), h2:not(.heading), h3:not(.heading):not(.card-title), h4:not(.heading), h5:not(.heading), h6:not(.heading) {
   font-family: var(--font-display);
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
@@ -283,6 +283,11 @@ h3:not(.heading):not(.card-title) {
   font-size: clamp(1.75rem, 3vw, var(--text-4xl));
   font-weight: var(--font-bold);
   line-height: var(--leading-snug);
+}
+
+/* CardTitle component default color - lower specificity than utility classes */
+.card-title {
+  color: var(--text-primary);
 }
 
 h4:not(.heading) {
@@ -365,6 +370,48 @@ small {
 .bg-neutral {
   background-color: var(--background-neutral);
 }
+
+.bg-gradient-black-blue {
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  background-color: #0f0f14; /* deep near-black */
+  background-image:
+    /* green glow bottom-left */
+    radial-gradient(120% 90% at 0% 100%,
+      rgba(108,143,57,0.18) 0%,
+      rgba(108,143,57,0.00) 60%),
+    /* warm/brownish mid-left tint */
+    radial-gradient(110% 70% at 25% 95%,
+      rgba(156,110,60,0.12) 0%,
+      rgba(156,110,60,0.00) 55%),
+    /* violet-blue glow bottom-right */
+    radial-gradient(120% 90% at 100% 100%,
+      rgba(68,61,152,0.28) 0%,
+      rgba(68,61,152,0.00) 60%),
+    /* gentle vertical darkening so the top stays black */
+    linear-gradient(180deg,
+      #0f0f14 0%,
+      #0f0f14 45%,
+      #111217 70%,
+      #0f0f14 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* IMPORTANT: do NOT use overlay/screen/multiply here */
+  background-blend-mode: normal;
+  position: relative;
+}
+
+.bg-gradient-black-blue::after {
+  content: "";
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 2px 2px;   /* tiny specks */
+  opacity: .18;               /* keep it subtle */
+  mix-blend-mode: normal;     /* keep it dark */
+}
+
 
 /* Pricing Card Gradient Background */
 .bg-pricing-gradient {

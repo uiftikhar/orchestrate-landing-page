@@ -1,4 +1,4 @@
-import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui";
+import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Accordion } from "@/components/ui";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 
 export function HeroMobile() {
@@ -305,6 +305,71 @@ export function HeroMobile() {
           </CardContent>
 
           <CardFooter className="pt-6 mt-6 border-t-1">
+            <Button variant="primary" size="lg" fullWidth>
+              Get started
+            </Button>
+          </CardFooter>
+        </Card>
+      </section>
+
+      <section className="px-5 mt-15 flex flex-col gap-6">
+        <Heading as="h2" className="text-3xl ">
+          FAQ
+        </Heading>
+        <Text size="base" weight="normal" variant="secondary" className="leading-relaxed ">
+          Find everything you need to know about Orchestrate and how we augment product development
+        </Text>
+        <Accordion
+          items={[
+            {
+              title: "What is Orchestrate?",
+              content:
+                "We bridge the gap between strategic goals and tactical product work by telling you what to build, validating it efficiently through multi-modal synthesis, and tracking impact against business objectives.",
+              defaultOpen: false,
+            },
+            {
+              title: "Is this another experimentation tool?",
+              content:
+                "Lorep ipsum",
+            },
+            {
+              title: "Do we need to replace our current tools?",
+              content:
+                "No. Orchestrate sits above your existing stack as an intelligence layer. We integrate with your analytics platforms, experimentation tools, and research tools. You keep what you have; we coordinate it strategically.",
+            },
+            {
+              title: "How do you make product decisions?",
+              content:
+                "We fuse data signals that are weak individually but strong together. By understanding your quantitative and qualitative data and historical patterns, we enable you to reach confident product decisions faster without sacrificing rigor.",
+            },
+            {
+              title: "Is my data secure with Orchestrate?",
+              content:
+                "We integrate with your existing data warehouse and provide self-hosted or hosted options so your data stays protected and private.",
+            },
+          ]}
+          allowMultiple={true}
+        />
+      </section>
+
+      <section className="px-5">
+        <Card
+          variant="outlined"
+          padding="lg"
+          className="rounded-3xl border border-gray-200 bg-gradient-black-blue"
+        >
+          <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
+              <CardTitle className="text-lg font-bold mb-1 text-white">
+                Design Partner
+              </CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-6">
+            <div>
+            </div>
+          </CardContent>
+
+          <CardFooter className="pt-6 mt-6 border-t-0">
             <Button variant="primary" size="lg" fullWidth>
               Get started
             </Button>

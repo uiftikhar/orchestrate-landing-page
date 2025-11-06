@@ -42,3 +42,6 @@ export type { InputProps } from "./Input";
 export { Textarea } from "./Textarea";
 export type { TextareaProps } from "./Textarea";
 
+export { Accordion, AccordionItem } from "./Accordion";
+export type { AccordionProps, AccordionItemProps } from "./Accordion";
+

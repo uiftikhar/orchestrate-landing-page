@@ -92,7 +92,7 @@ export const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
     return (
       <h3
         ref={ref}
-        className={cn("card-title text-2xl font-bold text-gray-950 dark:text-white", className)}
+        className={cn("card-title text-2xl font-bold", className)}
         {...props}
       >
         {children}
