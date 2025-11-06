@@ -256,8 +256,18 @@ body {
    TYPOGRAPHY STYLES
    ============================================ */
 
-/* Base heading styles - ONLY apply to headings without the .heading or .card-title component classes */
-h1:not(.heading), h2:not(.heading), h3:not(.heading):not(.card-title), h4:not(.heading), h5:not(.heading), h6:not(.heading) {
+/* ============================================
+   CONTENT AREA TYPOGRAPHY (for raw HTML like markdown/CMS content)
+   These are scoped to .content or .prose containers to avoid
+   interfering with component-based styling
+   ============================================ */
+
+.content h1, .prose h1,
+.content h2, .prose h2,
+.content h3, .prose h3,
+.content h4, .prose h4,
+.content h5, .prose h5,
+.content h6, .prose h6 {
   font-family: var(--font-display);
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
@@ -265,48 +275,49 @@ h1:not(.heading), h2:not(.heading), h3:not(.heading):not(.card-title), h4:not(.h
   margin: 0;
 }
 
-h1:not(.heading) {
+.content h1, .prose h1 {
   font-size: clamp(2.5rem, 5vw, var(--text-6xl));
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
 }
 
-h2:not(.heading) {
+.content h2, .prose h2 {
   font-size: clamp(2rem, 4vw, var(--text-5xl));
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
 }
 
-h3:not(.heading):not(.card-title) {
+.content h3, .prose h3 {
   font-size: clamp(1.75rem, 3vw, var(--text-4xl));
   font-weight: var(--font-bold);
   line-height: var(--leading-snug);
 }
 
-/* CardTitle component default color - lower specificity than utility classes */
-.card-title {
-  color: var(--text-primary);
-}
-
-h4:not(.heading) {
+.content h4, .prose h4 {
   font-size: clamp(1.5rem, 2.5vw, var(--text-3xl));
   font-weight: var(--font-semibold);
   line-height: var(--leading-snug);
 }
 
-h5:not(.heading) {
+.content h5, .prose h5 {
   font-size: clamp(1.25rem, 2vw, var(--text-2xl));
   font-weight: var(--font-semibold);
   line-height: var(--leading-normal);
 }
 
-h6:not(.heading) {
+.content h6, .prose h6 {
   font-size: clamp(1rem, 1.5vw, var(--text-xl));
   font-weight: var(--font-semibold);
   line-height: var(--leading-normal);
 }
+
+/* ============================================
+   COMPONENT-SPECIFIC DEFAULTS
+   All component defaults are handled in the component files using Tailwind utilities.
+   No component CSS should live in this global file.
+   ============================================ */
 
 p {
   margin: 0;

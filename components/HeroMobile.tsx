@@ -186,7 +186,7 @@ export function HeroMobile() {
           variant="secondary"
           className="leading-relaxed max-w-md"
         >
-          Experience the power of product orchestration 
+          Experience the power of product orchestration
           and take your business to the next level.
         </Text>
       </section>
@@ -250,7 +250,7 @@ export function HeroMobile() {
           variant="secondary"
           className="leading-relaxed max-w-md"
         >
-          Choose a plan that fits your business needs and 
+          Choose a plan that fits your business needs and
           start delivering better customer experiences today.
         </Text>
       </section>
@@ -282,7 +282,7 @@ export function HeroMobile() {
               <Heading as="h3" weight="bold" className="text-2xl mb-6">
                 Custom Pricing
               </Heading>
-              
+
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
@@ -352,30 +352,37 @@ export function HeroMobile() {
         />
       </section>
 
-      <section className="px-5">
-        <Card
-          variant="outlined"
-          padding="lg"
-          className="rounded-3xl border border-gray-200 bg-gradient-black-blue"
-        >
-          <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
-              <CardTitle className="text-lg font-bold mb-1 text-white">
-                Design Partner
+        <section className="px-5">
+          <Card
+            variant="outlined"
+            padding="lg"
+            className="rounded-3xl border border-gray-200 bg-gradient-black-blue"
+          >
+            <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
+              <CardTitle className="text-[36px] font-bold mb-1 text-white text-center">
+                Stop guessing, Start executing
               </CardTitle>
-          </CardHeader>
+            </CardHeader>
 
-          <CardContent className="space-y-6">
-            <div>
-            </div>
-          </CardContent>
+            <CardContent className="space-y-6">
+              <Text size="base" weight="normal" className="text-white text-center opacity-70">
+                Join product organizations that turned strategy docs into shipped outcomes.
+                Upload your strategy doc and see your first delta proposals today.
+              </Text>
+            </CardContent>
 
-          <CardFooter className="pt-6 mt-6 border-t-0">
-            <Button variant="primary" size="lg" fullWidth>
-              Get started
-            </Button>
-          </CardFooter>
-        </Card>
-      </section>
+            <CardFooter className="pt-6 mt-6 border-t-0">
+              <article className="flex flex-row gap-4">
+                <Button variant="secondary" size="md" fullWidth>
+                  Get started
+                </Button>
+                <Button variant="primary" size="md" fullWidth>
+                  Book a demo
+                </Button>
+              </article>
+            </CardFooter>
+          </Card>
+        </section>
     </section>
   );
 }

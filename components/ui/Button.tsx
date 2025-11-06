@@ -40,7 +40,7 @@ const variantClasses = {
   primary:
     "bg-gray-950 text-white hover:bg-gray-800 active:bg-gray-900 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-100",
   secondary:
-    "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800",
+    "bg-white text-black",
   outline:
     "border-2 border-gray-300 text-gray-950 hover:bg-gray-50 active:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-900",
   ghost:
