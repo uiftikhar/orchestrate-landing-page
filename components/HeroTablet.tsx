@@ -408,7 +408,7 @@ export function HeroTablet() {
       <section className="px-8 py-20">
         <Card
           variant="outlined"
-          className="rounded-3xl border border-gray-200 bg-gradient-black-blue p-20"
+          className="rounded-3xl border border-gray-200 bg-gradient-black-blue py-20 px-14"
         >
           <CardHeader>
             <CardTitle className="text-[36px] font-bold mb-1 text-white text-center">
@@ -416,7 +416,7 @@ export function HeroTablet() {
             </CardTitle>
           </CardHeader>
 
-          <CardContent className="mt-6">
+          <CardContent className="mt-6 px-8">
             <Text size="lg" weight="normal" className="text-white text-center opacity-70">
               Join product organizations that turned strategy docs into shipped outcomes.
               Upload your strategy doc and see your first delta proposals today.
