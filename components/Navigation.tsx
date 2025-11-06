@@ -93,7 +93,7 @@ export function Navigation() {
             </div>
 
             <a
-              href="#contact"
+              href="contact"
               className="text-sm text-gray-700 hover:text-gray-950 transition-colors"
             >
               Contact us
