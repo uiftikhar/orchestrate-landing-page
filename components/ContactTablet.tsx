@@ -38,7 +38,7 @@ export function ContactTablet() {
                     </svg>
                   </div>
                   <Text variant="secondary" size="sm" className="leading-relaxed">
-                    Netherlands, Amstredam, Bakerstreet 221, 120034
+                  32-38 Leman St, London E1 8EW
                   </Text>
                 </CardContent>
               </Card>
@@ -56,10 +56,10 @@ export function ContactTablet() {
                   </div>
                   <div className="space-y-2">
                     <Text variant="secondary" size="sm" className="leading-relaxed">
-                      hello@zentra.example
+                      hello@orchestrate.management
                     </Text>
                     <Text variant="secondary" size="sm" className="leading-relaxed">
-                      +87734817721
+                      +447805170828
                     </Text>
                   </div>
                 </CardContent>
