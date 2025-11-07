@@ -4,6 +4,11 @@
    DESIGN TOKENS - Color System
    ============================================ */
 
+html {
+  /* scroll-behavior: smooth; - Handled by JavaScript */
+  scroll-padding-top: 80px; /* Offset for fixed navigation */
+}
+
 :root {
   /* Gray Scale */
   --gray-0: rgb(255, 255, 255);

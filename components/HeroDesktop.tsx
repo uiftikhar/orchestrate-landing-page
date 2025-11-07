@@ -1,10 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Heading, Text, Button, Accordion, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui";
+import { Heading, Text, Button, Accordion, Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
+import { StrategyTree } from "./StrategyTree";
+import { SignalFusionViz } from "./SignalFusionViz";
+import { ImpactAttributionImagery } from "./ImpactAttributionImagery";
+import { KnowledgeGraph } from "./KnowledgeGraph";
 
 // Constants defined outside component to prevent recreation on every render
 const ROTATION_INTERVAL_MS = 10000;
@@ -186,16 +190,14 @@ export function HeroDesktop() {
       </section>
 
       {/* Features Section */}
-      <section className="pt-32 bg-white overflow-hidden">
+      <section id="product-delta" className="pt-32 bg-white overflow-hidden">
         <div className="flex gap-16 items-center">
           {/* Dashboard Table Image */}
           <figure
             className="rounded-l-none rounded-r-xl flex-shrink-0 w-[1106px] h-[594px] -ml-[640px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
           >
-            <div className="rounded-lg p-4 h-full">
-              <div className="rounded-lg h-full flex items-center justify-center">
-                <Text className="text-gray-400">Dashboard Table View</Text>
-              </div>
+            <div className="rounded-lg h-full flex items-center justify-center">
+              <StrategyTree />
             </div>
           </figure>
           <article className="pr-32 flex-1 ">
@@ -240,7 +242,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Additional Features Section */}
-      <section className="pt-32 bg-white overflow-hidden">
+      <section id="fuse-evaluate" className="pt-32 bg-white overflow-hidden">
         <div className="flex gap-16 items-center">
           <article className="pl-32 flex-1">
             <Heading
@@ -286,26 +288,22 @@ export function HeroDesktop() {
           <figure
             className="rounded-r-none rounded-l-xl flex-shrink-0 w-[1106px] h-[594px] -mr-[740px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
           >
-            <div className="rounded-lg p-4 h-full">
-              <div className="rounded-lg h-full flex items-center justify-center">
-                <Text className="text-gray-400">Feature Image</Text>
-              </div>
+            <div className="rounded-lg h-full flex items-center justify-center">
+              <SignalFusionViz />
             </div>
           </figure>
         </div>
       </section>
 
       {/* Additional Features Section */}
-      <section className="pt-32 bg-white overflow-hidden">
+      <section id="impact-trace" className="pt-32 bg-white overflow-hidden">
         <div className="flex gap-16 items-center">
           {/* Feature Image */}
           <figure
             className="rounded-l-none rounded-r-xl flex-shrink-0 w-[1106px] h-[594px] -ml-[640px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
           >
-            <div className="rounded-lg p-4 h-full">
-              <div className="rounded-lg h-full flex items-center justify-center">
-                <Text className="text-gray-400">Feature Image</Text>
-              </div>
+            <div className="rounded-lg h-full flex items-center justify-center">
+              <ImpactAttributionImagery />
             </div>
           </figure>
 
@@ -351,7 +349,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Features with Orange Icons */}
-      <section className="pt-20 px-30">
+      <section id="knowledge-graph" className="pt-20 px-30">
         <div>
           <article className="mb-12 max-w-[600px]">
             <Heading as="h2" className="text-[48px] leading-[1.2] mb-6" weight="semibold">
@@ -366,10 +364,11 @@ export function HeroDesktop() {
           {/* 	746 × 420 px */}
           {/* Feature Image */}
           <figure
-            className="rounded-xl pt-8 px-8 relative overflow-hidden aspect-[1200/594] bg-[url(/gradient-yellow-purple-background.png)] bg-cover bg-center bg-no-repeat"
+            className="rounded-xl p-8 relative overflow-hidden bg-[url(/gradient-yellow-purple-background.png)] bg-cover bg-center bg-no-repeat"
+            style={{ minHeight: '420px' }}
           >
-            <div className="rounded-lg h-full flex items-center justify-center">
-              <Text className="text-gray-400">Feature Image</Text>
+            <div className="w-full h-full" style={{ minHeight: '350px' }}>
+              <KnowledgeGraph />
             </div>
           </figure>
 
@@ -425,34 +424,28 @@ export function HeroDesktop() {
         >
           <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
             <div className="flex-1">
-              <CardDescription className="text-base">
-                <Heading as="h3" weight="bold" className="text-3xl mb-8">
-                  Custom Pricing
-                </Heading>
+              <Heading as="h3" weight="bold" className="text-3xl mb-8">
+                Custom Pricing
+              </Heading>
 
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <Text size="base">Strategy-to-Metrics setup (OKR ingestion, metrics tree)
-                    </Text>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <Text size="base">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)
-                    </Text>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <Text size="base">Executive attribution dashboard + learning bank
-                    </Text>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <Text size="base">Dedicated product partner (weekly working session, clear SLAs)
-                    </Text>
-                  </li>
-                </ul>
-              </CardDescription>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
+                </li>
+              </ul>
             </div>
             <div className="px-4 py-2 rounded-full text-sm font-medium bg-badge-light">
               <span className="text-gradient-purple-orange">

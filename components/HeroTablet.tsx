@@ -1,10 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Accordion } from "@/components/ui";
+import { Heading, Text, Button, Card, CardHeader, CardTitle, CardContent, CardFooter, Accordion } from "@/components/ui";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 import { AnimatedSection } from "./AnimatedSection";
+import { StrategyTree } from "./StrategyTree";
+import { SignalFusionViz } from "./SignalFusionViz";
+import { ImpactAttributionImagery } from "./ImpactAttributionImagery";
+import { KnowledgeGraph } from "./KnowledgeGraph";
 
 // Constants defined outside component to prevent recreation on every render
 const ROTATION_INTERVAL_MS = 10000;
@@ -191,7 +195,7 @@ export function HeroTablet() {
 
       {/* Features Section */}
       <AnimatedSection delay={getStaggerDelay(2)}>
-        <section className="px-8 pt-20 bg-white">
+        <section id="product-delta" className="px-8 pt-20 bg-white">
           <div className="max-w-3xl mx-auto">
             <article>
               <Heading
@@ -235,10 +239,8 @@ export function HeroTablet() {
               <figure
                 className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] -translate-x-[254px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
               >
-                <div className="rounded-lg p-4 h-full">
-                  <div className="rounded-lg h-full flex items-center justify-center">
-                    <Text className="text-gray-400">Dashboard Table View</Text>
-                  </div>
+                <div className="rounded-lg h-full flex items-center justify-center">
+                  <StrategyTree />
                 </div>
               </figure>
             </article>
@@ -247,7 +249,7 @@ export function HeroTablet() {
       </AnimatedSection>
 
       {/* Additional Features Section */}
-      <section className="px-8 pt-20 bg-white overflow-x-hidden">
+      <section id="fuse-evaluate" className="px-8 pt-20 bg-white overflow-x-hidden">
         <div className="max-w-3xl mx-auto">
           <article>
             <Heading
@@ -292,10 +294,8 @@ export function HeroTablet() {
             <figure
               className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
             >
-              <div className="rounded-lg p-4 h-full">
-                <div className="rounded-lg h-full flex items-center justify-center">
-                  <Text className="text-gray-400">Feature Image</Text>
-                </div>
+              <div className="rounded-lg h-full flex items-center justify-center">
+                <SignalFusionViz />
               </div>
             </figure>
           </article>
@@ -303,7 +303,7 @@ export function HeroTablet() {
       </section>
 
       {/* Additional Features Section */}
-      <section className="px-8 pt-20 bg-white overflow-x-hidden">
+      <section id="impact-trace" className="px-8 pt-20 bg-white overflow-x-hidden">
         <div className="max-w-3xl mx-auto">
           <article>
             <Heading
@@ -348,10 +348,8 @@ export function HeroTablet() {
             <figure
               className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] -translate-x-[254px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
             >
-              <div className="rounded-lg p-4 h-full">
-                <div className="rounded-lg h-full flex items-center justify-center">
-                  <Text className="text-gray-400">Feature Image</Text>
-                </div>
+              <div className="rounded-lg h-full flex items-center justify-center">
+                <ImpactAttributionImagery />
               </div>
             </figure>
           </article>
@@ -359,7 +357,7 @@ export function HeroTablet() {
       </section>
 
       {/* Features with Orange Icons */}
-      <section className="px-8 pt-20">
+      <section id="knowledge-graph" className="px-8 pt-20">
         <div className="max-w-3xl mx-auto">
           <article className="mb-12 max-w-[600px]">
             <Heading as="h2" className="text-[40px] leading-[1.2] mb-6" weight="semibold">
@@ -374,12 +372,11 @@ export function HeroTablet() {
           {/* 	746 × 420 px */}
           {/* Feature Image */}
           <figure
-            className="rounded-xl p-1 relative overflow-hidden w-[746px] h-[420px] bg-[url(/gradient-yellow-purple-background.png)] bg-cover bg-center bg-no-repeat"
+            className="rounded-xl p-4 relative overflow-hidden bg-[url(/gradient-yellow-purple-background.png)] bg-cover bg-center bg-no-repeat"
+            style={{ width: '746px', height: '420px' }}
           >
-            <div className="rounded-lg p-4 h-full">
-              <div className="rounded-lg h-full flex items-center justify-center">
-                <Text className="text-gray-400">Feature Image</Text>
-              </div>
+            <div className="w-full h-full">
+              <KnowledgeGraph />
             </div>
           </figure>
 
@@ -436,34 +433,28 @@ export function HeroTablet() {
           >
             <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
               <div className="flex-1">
-                <CardDescription className="text-base">
-                  <Heading as="h3" weight="bold" className="text-3xl mb-8">
-                    Custom Pricing
-                  </Heading>
+                <Heading as="h3" weight="bold" className="text-3xl mb-8">
+                  Custom Pricing
+                </Heading>
 
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      <Text size="base">Strategy-to-Metrics setup (OKR ingestion, metrics tree)
-                      </Text>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      <Text size="base">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)
-                      </Text>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      <Text size="base">Executive attribution dashboard + learning bank
-                      </Text>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      <Text size="base">Dedicated product partner (weekly working session, clear SLAs)
-                      </Text>
-                    </li>
-                  </ul>
-                </CardDescription>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
+                  </li>
+                </ul>
               </div>
               <div className="px-4 py-2 rounded-full text-sm font-medium bg-badge-light">
                 <span className="text-gradient-purple-orange">
