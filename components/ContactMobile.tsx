@@ -17,7 +17,7 @@ export function ContactMobile() {
             as="h1"
             className="text-4xl leading-[1.2] font-semibold tracking-tight text-center"
           >
-            Empowering Teams with Smarter Solutions
+            Turn Your Product Strategy Into Results
           </Heading>
           </AnimatedSection>
           <AnimatedSection delay={getStaggerDelay(1)}>
@@ -27,7 +27,8 @@ export function ContactMobile() {
             variant="secondary"
             className="leading-relaxed text-center"
           >
-            We're on a mission to redefine how businesses manage relationships, data, and workflows in a connected world.
+            We empower product leaders with the technology to close the gap between ambitious goals and successful execution. With Orchestrate you'll move from wondering if you're building the right product changes to knowing you are.
+
           </Text>
           </AnimatedSection>
         </article>

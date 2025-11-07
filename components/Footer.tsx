@@ -12,9 +12,9 @@ export function Footer() {
   ];
 
   const companyLinks = [
-    { label: "About", href: "#about" },
-    { label: "Contact us", href: "#contact" },
-    { label: "Legal", href: "#legal" },
+    { label: "About", href: "about" },
+    { label: "Contact us", href: "contact" },
+    { label: "Legal", href: "legal" },
   ];
 
   return (

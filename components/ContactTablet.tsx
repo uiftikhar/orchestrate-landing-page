@@ -18,9 +18,7 @@ export function ContactTablet() {
                 as="h1"
                 className="text-[56px] leading-[1.1] font-bold mb-8 tracking-tight"
               >
-                Empowering Teams<br />
-                with Smarter<br />
-                Solutions
+                Turn Your Product Strategy Into Results
               </Heading>
             </AnimatedSection>
             <AnimatedSection delay={getStaggerDelay(1)}>
@@ -29,7 +27,8 @@ export function ContactTablet() {
                 className="text-gray-600 max-w-xl mx-auto leading-relaxed"
                 weight="medium"
               >
-                We're on a mission to redefine how businesses manage relationships, data, and workflows in a connected world.
+                We empower product leaders with the technology to close the gap between ambitious goals and successful execution. With Orchestrate you'll move from wondering if you're building the right product changes to knowing you are.
+
               </Text>
             </AnimatedSection>
           </article>
