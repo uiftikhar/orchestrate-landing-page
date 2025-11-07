@@ -1,39 +1,47 @@
+"use client";
+
 import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Accordion } from "@/components/ui";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 
 export function HeroMobile() {
   return (
     <main className="block md:hidden space-y-8 py-14">
       <section className="flex flex-col gap-8 mb-15 px-5">
         <article className="flex flex-col gap-5">
-          <Heading
-            as="h1"
-            className="text-[40px] leading-[1.1] font-bold tracking-tight"
-          >
-            Product execution, augmented
-          </Heading>
-          <Text
-            size="base"
-            weight="semibold"
-            variant="secondary"
-            className="leading-relaxed max-w-md"
-          >
-            Orchestrate is your agentic product strategist. It learns from every
-            product change, proves what drives impact, and sharpens what you build
-            next.
-          </Text>
+          <AnimatedSection delay={getStaggerDelay(0)}>
+            <Heading
+              as="h1"
+              className="text-[40px] leading-[1.1] font-bold tracking-tight"
+            >
+              Product execution, augmented
+            </Heading>
+          </AnimatedSection>
+          <AnimatedSection delay={getStaggerDelay(0.5)}>
+            <Text
+              size="base"
+              weight="semibold"
+              variant="secondary"
+              className="leading-relaxed max-w-md"
+            >
+              Orchestrate is your agentic product strategist. It learns from every
+              product change, proves what drives impact, and sharpens what you build
+              next.
+            </Text>
+          </AnimatedSection>
         </article>
-        <article className="flex flex-row gap-3">
+        <AnimatedSection delay={getStaggerDelay(1)} as="article" className="flex flex-row gap-3">
           <Button variant="primary" size="lg" fullWidth>
             Book a demo
           </Button>
           <Button variant="outline" size="lg" fullWidth>
             Talk to sales
           </Button>
-        </article>
+        </AnimatedSection>
       </section>
 
-      <section className="flex flex-col gap-[14px] w-full mb-15">
+      <AnimatedSection delay={getStaggerDelay(1.5)} as="section" className="flex flex-col gap-[14px] w-full mb-15">
         <Heading
           as="h6"
           align="center"
@@ -42,10 +50,10 @@ export function HeroMobile() {
           Strategic Clarity
         </Heading>
         <div className="bg-gray-500 h-[236px] w-full" />
-      </section>
+      </AnimatedSection>
 
       <section className="px-5 flex flex-col gap-10">
-        <article className="flex flex-col gap-5">
+        <AnimatedSection delay={getStaggerDelay(2)}>
           <Heading as="h3" weight="semibold" className="tracking-normal">
             Your team has 100 ideas. We tell you which matter.
           </Heading>
@@ -59,9 +67,7 @@ export function HeroMobile() {
             Orchestrate ranks product changes by strategic impact to prevent waste,
             so you only invest in what's most likely to move your metrics.
           </Text>
-        </article>
 
-        <ul className="flex flex-col gap-[10px]">
           <li className="flex items-center gap-4">
             <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
@@ -80,7 +86,7 @@ export function HeroMobile() {
               Gets smarter with every shipped product change
             </Text>
           </li>
-        </ul>
+        </AnimatedSection>
       </section>
 
       <section className="px-5 mb-15">
@@ -352,37 +358,37 @@ export function HeroMobile() {
         />
       </section>
 
-        <section className="px-5">
-          <Card
-            variant="outlined"
-            padding="lg"
-            className="rounded-3xl border border-gray-200 bg-gradient-black-blue"
-          >
-            <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
-              <CardTitle className="text-[36px] font-bold mb-1 text-white text-center">
-                Stop guessing, Start executing
-              </CardTitle>
-            </CardHeader>
+      <section className="px-5">
+        <Card
+          variant="outlined"
+          padding="lg"
+          className="rounded-3xl bg-[url(/gradient-black-green-background.png)] bg-cover bg-center bg-no-repeat"
+        >
+          <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
+            <CardTitle className="text-[36px] font-bold mb-1 text-white text-center">
+              Stop guessing, Start executing
+            </CardTitle>
+          </CardHeader>
 
-            <CardContent className="space-y-6">
-              <Text size="base" weight="normal" className="text-white text-center opacity-70">
-                Join product organizations that turned strategy docs into shipped outcomes.
-                Upload your strategy doc and see your first delta proposals today.
-              </Text>
-            </CardContent>
+          <CardContent className="space-y-6">
+            <Text size="base" weight="normal" className="text-white text-center opacity-70">
+              Join product organizations that turned strategy docs into shipped outcomes.
+              Upload your strategy doc and see your first delta proposals today.
+            </Text>
+          </CardContent>
 
-            <CardFooter className="pt-6 mt-6 border-t-0">
-              <article className="flex flex-row gap-4">
-                <Button variant="secondary" size="md" fullWidth>
-                  Get started
-                </Button>
-                <Button variant="primary" size="md" fullWidth>
-                  Book a demo
-                </Button>
-              </article>
-            </CardFooter>
-          </Card>
-        </section>
+          <CardFooter className="pt-6 mt-6 border-t-0">
+            <article className="flex flex-row gap-4">
+              <Button variant="secondary" size="md" fullWidth>
+                Get started
+              </Button>
+              <Button variant="primary" size="md" fullWidth>
+                Book a demo
+              </Button>
+            </article>
+          </CardFooter>
+        </Card>
+      </section>
     </main>
   );
 }

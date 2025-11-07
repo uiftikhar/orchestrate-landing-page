@@ -1,6 +1,8 @@
 import { Heading, Text, Button, Accordion, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui";
+import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { useState } from "react";
+import { AnimatedSection } from "./AnimatedSection";
 
 
 const tabs = [
@@ -17,12 +19,15 @@ export function HeroDesktop() {
       <section className="pt-20">
         <div className="">
           <article className="text-center mb-16 px-30">
+          <AnimatedSection delay={getStaggerDelay(0)}>
             <Heading
               as="h1"
               className="text-[56px] leading-[1.1] font-bold mb-8 tracking-tight max-w-[540px]"
             >
               Product execution, augmented
             </Heading>
+          </AnimatedSection>
+          <AnimatedSection delay={getStaggerDelay(0.5)}>  
             <div className="flex items-end justify-between gap-6">
               <Text
                 size="lg"
@@ -39,10 +44,12 @@ export function HeroDesktop() {
                 </Button>
               </div>
             </div>
+            </AnimatedSection>
           </article>
 
           {/* Tabs */}
           <div className="mt-20 px-30" role="tablist" aria-label="Dashboard views">
+            <AnimatedSection delay={getStaggerDelay(1)}> 
             <div className="flex justify-center gap-12">
               {tabs.map((tab) => (
                 <button
@@ -60,9 +67,11 @@ export function HeroDesktop() {
                 </button>
               ))}
             </div>
+            </AnimatedSection>
           </div>
 
           {/* Dashboard Mockup */}
+          <AnimatedSection delay={getStaggerDelay(1.5)}>  
           <figure
             className="bg-gradient-to-br from-purple-100 to-pink-100 p-8"
             role="tabpanel"
@@ -73,6 +82,7 @@ export function HeroDesktop() {
               <Text className="text-gray-400">Dashboard Mockup - {tabs[activeTab].label}</Text>
             </div>
           </figure>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -397,7 +407,7 @@ export function HeroDesktop() {
       <section className="py-20 px-30">
         <Card
           variant="outlined"
-          className="rounded-3xl border border-gray-200 bg-gradient-black-blue py-20 px-14"
+          className="rounded-3xl border border-gray-200 bg-[url(/gradient-black-green-background.png)] bg-cover bg-center bg-no-repeat py-20 px-14"
         >
           <CardHeader>
             <CardTitle className="text-[48px] font-bold mb-1 text-white text-center">

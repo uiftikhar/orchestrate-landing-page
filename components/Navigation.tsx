@@ -29,7 +29,7 @@ export function Navigation() {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="text-lg font-semibold text-gray-950">zentra</span>
+            <span className="text-lg font-semibold text-gray-950">orchestrate</span>
           </div>
 
           {/* Desktop Navigation */}

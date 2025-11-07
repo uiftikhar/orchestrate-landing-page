@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Accordion } from "@/components/ui";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
+import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
+import { AnimatedSection } from "./AnimatedSection";
 
 export function HeroTablet() {
   const [activeTab, setActiveTab] = useState(0);
@@ -19,117 +21,127 @@ export function HeroTablet() {
       <section className="pt-20">
         <div className="max-w-3xl mx-auto">
           <article className="px-8 text-center mb-16">
-            <Heading
-              as="h1"
-              className="text-[56px] leading-[1.1] font-bold mb-8 tracking-tight"
-            >
-              Product<br />
-              execution,<br />
-              augmented
-            </Heading>
-            <div className="flex items-end justify-between gap-6">
-              <Text
-                size="lg"
-                className="text-gray-600 max-w-[370px] leading-relaxed"
+            <AnimatedSection delay={getStaggerDelay(0)}>
+              <Heading
+                as="h1"
+                className="text-[56px] leading-[1.1] font-bold mb-8 tracking-tight"
               >
-                Orchestrate is your agentic product strategist. It learns from every product change, proves what drives impact, and sharpens what you build next.
-              </Text>
-              <div className="flex gap-3 whitespace-nowrap">
-                <Button variant="primary" size="lg" className="px-6 text-sm font-medium">
-                  Book a demo
-                </Button>
-                <Button variant="outline" size="lg" className="px-6 text-sm font-medium">
-                  Talk to sales
-                </Button>
+                Product<br />
+                execution,<br />
+                augmented
+              </Heading>
+            </AnimatedSection>
+            <AnimatedSection delay={getStaggerDelay(0.5)}>
+              <div className="flex items-end justify-between gap-6">
+                <Text
+                  size="lg"
+                  className="text-gray-600 max-w-[370px] leading-relaxed"
+                >
+                  Orchestrate is your agentic product strategist. It learns from every product change, proves what drives impact, and sharpens what you build next.
+                </Text>
+                <div className="flex gap-3 whitespace-nowrap">
+                  <Button variant="primary" size="lg" className="px-6 text-sm font-medium">
+                    Book a demo
+                  </Button>
+                  <Button variant="outline" size="lg" className="px-6 text-sm font-medium">
+                    Talk to sales
+                  </Button>
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
           </article>
 
           {/* Tabs */}
           <div className="mt-20" role="tablist" aria-label="Dashboard views">
-            <div className="flex justify-center gap-12">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  role="tab"
-                  onClick={() => setActiveTab(tab.id)}
-                  aria-selected={activeTab === tab.id}
-                  aria-controls={`tabpanel-${tab.id}`}
-                  className={`pb-4 px-1 text-[15px] font-medium transition-all relative ${activeTab === tab.id
+            <AnimatedSection delay={getStaggerDelay(1)}>
+              <div className="flex justify-center gap-12">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    role="tab"
+                    onClick={() => setActiveTab(tab.id)}
+                    aria-selected={activeTab === tab.id}
+                    aria-controls={`tabpanel-${tab.id}`}
+                    className={`pb-4 px-1 text-[15px] font-medium transition-all relative ${activeTab === tab.id
                       ? "text-gray-900"
                       : "text-gray-500 hover:text-gray-700 border-transparent"
-                    }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Dashboard Mockup */}
-          <figure
-            className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-1"
-            role="tabpanel"
-            id={`tabpanel-${activeTab}`}
-            aria-labelledby={`tab-${activeTab}`}
-          >
-            <div className="bg-white rounded-lg p-6">
-              <div className="bg-gray-100 rounded-lg h-[400px] flex items-center justify-center">
-                <Text className="text-gray-400">Dashboard Mockup - {tabs[activeTab].label}</Text>
+                      }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
               </div>
-            </div>
-          </figure>
+            </AnimatedSection>
+
+          </div>
+          {/* Dashboard Mockup */}
+          <AnimatedSection delay={getStaggerDelay(1.5)}>
+            <figure
+              className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-1"
+              role="tabpanel"
+              id={`tabpanel-${activeTab}`}
+              aria-labelledby={`tab-${activeTab}`}
+            >
+              <div className="bg-white rounded-lg p-6">
+                <div className="bg-gray-100 rounded-lg h-[400px] flex items-center justify-center">
+                  <Text className="text-gray-400">Dashboard Mockup - {tabs[activeTab].label}</Text>
+                </div>
+              </div>
+            </figure>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="px-8 pt-20 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <article>
-            <Heading
-              as="h2"
-              className="text-[40px] leading-[1.2] font-bold mb-6"
-            >
-              Your team has 100 ideas. We tell you which matter.
-            </Heading>
-            <Text className="text-gray-600 mb-12 text-lg leading-relaxed" weight="medium">
-              The ship-fast-learn cycle is slow. Orchestrate ranks product changes by strategic impact to prevent waste, so you only invest in what's most likely to move your metrics.
-            </Text>
+      <AnimatedSection delay={getStaggerDelay(2)}>
+        <section className="px-8 pt-20 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <article>
+              <Heading
+                as="h2"
+                className="text-[40px] leading-[1.2] font-bold mb-6"
+              >
+                Your team has 100 ideas. We tell you which matter.
+              </Heading>
+              <Text className="text-gray-600 mb-12 text-lg leading-relaxed" weight="medium">
+                The ship-fast-learn cycle is slow. Orchestrate ranks product changes by strategic impact to prevent waste, so you only invest in what's most likely to move your metrics.
+              </Text>
 
-            <ul className="space-y-[10px] mb-16 mt-10">
-              <li className="flex items-center gap-4">
-                <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Ranked by strategic impact and probability of success
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Evidence-based rationale for each recommendation
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Gets smarter with every shipped product change
-                </Text>
-              </li>
-            </ul>
+              <ul className="space-y-[10px] mb-16 mt-10">
+                <li className="flex items-center gap-4">
+                  <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                  <Text size="lg" className="leading-relaxed" weight="medium">
+                    Ranked by strategic impact and probability of success
+                  </Text>
+                </li>
+                <li className="flex items-center gap-4">
+                  <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                  <Text size="lg" className="leading-relaxed" weight="medium">
+                    Evidence-based rationale for each recommendation
+                  </Text>
+                </li>
+                <li className="flex items-center gap-4">
+                  <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                  <Text size="lg" className="leading-relaxed" weight="medium">
+                    Gets smarter with every shipped product change
+                  </Text>
+                </li>
+              </ul>
 
-            {/* Dashboard Table Image */}
-            <figure
-              className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] -translate-x-[254px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
-            >
-              <div className="rounded-lg p-4 h-full">
-                <div className="rounded-lg h-full flex items-center justify-center">
-                  <Text className="text-gray-400">Dashboard Table View</Text>
+              {/* Dashboard Table Image */}
+              <figure
+                className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] -translate-x-[254px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
+              >
+                <div className="rounded-lg p-4 h-full">
+                  <div className="rounded-lg h-full flex items-center justify-center">
+                    <Text className="text-gray-400">Dashboard Table View</Text>
+                  </div>
                 </div>
-              </div>
-            </figure>
-          </article>
-        </div>
-      </section>
+              </figure>
+            </article>
+          </div>
+        </section>
+      </AnimatedSection>
 
       {/* Additional Features Section */}
       <section className="px-8 pt-20 bg-white overflow-x-hidden">
@@ -261,7 +273,7 @@ export function HeroTablet() {
 
           <div className="flex gap-6 mt-6">
             <article className="flex flex-col gap-3 pb-8 p-10">
-              <GitMerge size={24} color="#FF8C00" aria-hidden="true"/>
+              <GitMerge size={24} color="#FF8C00" aria-hidden="true" />
               <Heading as="h3" className="text-xl font-semibold">
                 Effortless organization
               </Heading>
@@ -271,7 +283,7 @@ export function HeroTablet() {
             </article>
 
             <article className="flex flex-col gap-3 pb-8 p-10">
-              <Flame size={24} color="#FF8C00" aria-hidden="true"/>
+              <Flame size={24} color="#FF8C00" aria-hidden="true" />
               <Heading as="h3" className="text-xl font-semibold">
                 Boosted productivity
               </Heading>
@@ -281,7 +293,7 @@ export function HeroTablet() {
             </article>
 
             <article className="flex flex-col gap-3 p-10">
-              <LineChart size={24} color="#FF8C00" aria-hidden="true"/>
+              <LineChart size={24} color="#FF8C00" aria-hidden="true" />
               <Heading as="h3" className="text-xl font-semibold">
                 Data-driven growth
               </Heading>
@@ -408,7 +420,7 @@ export function HeroTablet() {
       <section className="px-8 py-20">
         <Card
           variant="outlined"
-          className="rounded-3xl border border-gray-200 bg-gradient-black-blue py-20 px-14"
+          className="rounded-3xl bg-[url(/gradient-black-green-background.png)] bg-cover bg-center bg-no-repeat py-20 px-14"
         >
           <CardHeader>
             <CardTitle className="text-[36px] font-bold mb-1 text-white text-center">

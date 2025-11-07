@@ -57,7 +57,7 @@ export function Footer() {
                 />
               </svg>
               <Text size="lg" weight="semibold" className="text-white">
-                zentra
+                orchestrate
               </Text>
             </div>
 
@@ -147,7 +147,7 @@ export function Footer() {
                 />
               </svg>
               <Text size="lg" weight="semibold" className="text-white">
-                zentra
+                orchestrate
               </Text>
             </div>
 

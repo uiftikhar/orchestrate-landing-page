@@ -1,6 +1,11 @@
+"use client";
+
 import { Heading, Text, Button, Input, Textarea, Card, CardContent } from "@/components/ui";
+import { useContactForm } from "@/hooks/useContactForm";
 
 export function ContactTablet() {
+  const { formData, errors, isSubmitting, submitStatus, handleChange, handleSubmit } = useContactForm();
+
   return (
     <main className="hidden md:block lg:hidden">
       <section className="px-8 py-20 bg-gray-50">
@@ -67,14 +72,20 @@ export function ContactTablet() {
             </div>
 
             {/* Right Column: Contact Form - NO CARD */}
-            <div className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <Text size="sm" weight="semibold" className="text-gray-900">Your Name</Text>
                 <Input 
                   placeholder="Jane Smith" 
                   type="text"
                   className="w-full mt-[10px]"
+                  value={formData.name}
+                  onChange={(e) => handleChange("name", e.target.value)}
+                  disabled={isSubmitting}
                 />
+                {errors.name && (
+                  <Text size="xs" className="text-red-600 mt-1">{errors.name}</Text>
+                )}
               </div>
               <div>
                 <Text size="sm" weight="semibold" className="text-gray-900">Your Email</Text>
@@ -82,19 +93,44 @@ export function ContactTablet() {
                   placeholder="jane@framer.com" 
                   type="email"
                   className="w-full mt-[10px]"
+                  value={formData.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  disabled={isSubmitting}
                 />
+                {errors.email && (
+                  <Text size="xs" className="text-red-600 mt-1">{errors.email}</Text>
+                )}
               </div>
               <div>
                 <Text size="sm" weight="semibold" className="text-gray-900">Your Message</Text>
                 <Textarea 
                   placeholder="Message..." 
                   className="w-full min-h-[120px] mt-[10px]"
+                  value={formData.message}
+                  onChange={(e) => handleChange("message", e.target.value)}
+                  disabled={isSubmitting}
                 />
+                {errors.message && (
+                  <Text size="xs" className="text-red-600 mt-1">{errors.message}</Text>
+                )}
               </div>
-              <Button variant="primary" size="md" fullWidth>
-                Submit your message
+              
+              {submitStatus.type && (
+                <div className={`p-3 rounded ${submitStatus.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
+                  <Text size="sm">{submitStatus.message}</Text>
+                </div>
+              )}
+              
+              <Button 
+                variant="primary" 
+                size="md" 
+                fullWidth
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Submit your message"}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
       </section>
