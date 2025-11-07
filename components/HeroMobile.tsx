@@ -1,64 +1,77 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Accordion } from "@/components/ui";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 
+// Constants defined outside component to prevent recreation on every render
+const ROTATION_INTERVAL_MS = 10000;
+const IMAGE_TRANSITION_DURATION_MS = 180;
+
+const tabs = [
+  { label: "Without Orchestrate", id: 0 },
+  { label: "With Orchestrate", id: 1 },
+  { label: "Comparison", id: 2 },
+] as const;
+
+const tabImages = [
+  {
+    id: 0,
+    src: "/without-orchestrate.svg",
+    alt: "Dashboard view showcasing strategic clarity",
+  },
+  {
+    id: 1,
+    src: "/with-orchestrate.svg",
+    alt: "Dashboard view highlighting smart recommendations",
+  },
+  {
+    id: 2,
+    src: "/orchestrate-vs-non-orchestrate.svg",
+    alt: "Dashboard comparison illustrating impact attribution",
+  },
+] as const;
+
 export function HeroMobile() {
-  const tabs = [
-    { label: "Without Orchestrate", id: 0 },
-    { label: "With Orchestrate", id: 1 },
-    { label: "Comparison", id: 2 },
-  ];
-
-  const tabImages = [
-    {
-      id: 0,
-      src: "/without-orchestrate.svg",
-      alt: "Dashboard view showcasing strategic clarity",
-    },
-    {
-      id: 1,
-      src: "/with-orchestrate.svg",
-      alt: "Dashboard view highlighting smart recommendations",
-    },
-    {
-      id: 2,
-      src: "/orchestrate-vs-non-orchestrate.svg",
-      alt: "Dashboard comparison illustrating impact attribution",
-    },
-  ];
-
   const [activeTab, setActiveTab] = useState(0);
   const [imageTab, setImageTab] = useState(0);
   const [isImageVisible, setIsImageVisible] = useState(true);
   const [progressKey, setProgressKey] = useState(0);
+  const rotateIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const fadeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Handle image fade transition
+  // Handle image fade transition with cleanup
   useEffect(() => {
     if (activeTab === imageTab) return;
 
     setIsImageVisible(false);
 
-    const timeout = setTimeout(() => {
+    fadeTimeoutRef.current = setTimeout(() => {
       setImageTab(activeTab);
       requestAnimationFrame(() => setIsImageVisible(true));
-    }, 180);
-
-    return () => clearTimeout(timeout);
-  }, [activeTab, imageTab]);
-
-  // Auto-rotate tabs every 10 seconds with progress bar
-  useEffect(() => {
-    const rotateInterval = setInterval(() => {
-      setActiveTab((prev) => (prev + 1) % tabs.length);
-      setProgressKey((prev) => prev + 1);
-    }, 10000);
+    }, IMAGE_TRANSITION_DURATION_MS);
 
     return () => {
-      clearInterval(rotateInterval);
+      if (fadeTimeoutRef.current) {
+        clearTimeout(fadeTimeoutRef.current);
+      }
+    };
+  }, [activeTab, imageTab]);
+
+  // Auto-rotate tabs with cleanup on unmount
+  useEffect(() => {
+    rotateIntervalRef.current = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % tabs.length);
+      setProgressKey((prev) => prev + 1);
+    }, ROTATION_INTERVAL_MS);
+
+    return () => {
+      if (rotateIntervalRef.current) {
+        clearInterval(rotateIntervalRef.current);
+        rotateIntervalRef.current = null;
+      }
     };
   }, []);
 
@@ -83,18 +96,13 @@ export function HeroMobile() {
               variant="secondary"
               className="leading-relaxed max-w-md"
             >
-              Orchestrate is your agentic product strategist. It learns from every
-              product change, proves what drives impact, and sharpens what you build
-              next.
+              Orchestrate connects your strategic goals to the product changes that actually move them. It learns from every product change, proves what drives impact, and tells you what to build next
             </Text>
           </AnimatedSection>
         </article>
         <AnimatedSection delay={getStaggerDelay(1)} as="article" className="flex flex-row gap-3">
           <Button variant="primary" size="lg" fullWidth>
             Book a demo
-          </Button>
-          <Button variant="outline" size="lg" fullWidth>
-            Talk to sales
           </Button>
         </AnimatedSection>
       </section>
@@ -147,27 +155,31 @@ export function HeroMobile() {
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
-            The ship-test-learn cycle is slow.
-            Orchestrate ranks product changes by strategic impact to prevent waste,
-            so you only invest in what's most likely to move your metrics.
+            Orchestrate analyzes your strategy, historical data, and current signals to propose ranked product changes, so you only invest in what's most likely to move your metrics.
           </Text>
 
           <li className="flex items-center gap-4">
             <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
-              Ranked by strategic impact and probability of success
+              Ranked by strategic impact × probability of success
             </Text>
           </li>
           <li className="flex items-center gap-4">
             <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
-              Evidence-based rationale for each recommendation
+              Multi-modal evidence for each proposal (quant + qual + historical)
             </Text>
           </li>
           <li className="flex items-center gap-4">
             <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
-              Gets smarter with every shipped product change
+              Export deltas directly into Figma, Cursor, Claude Code, or build your own way
+            </Text>
+          </li>
+          <li className="flex items-center gap-4">
+            <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Text size="base" className="leading-relaxed" weight="medium">
+              Learns from every shipped change, proposals get smarter over time
             </Text>
           </li>
         </AnimatedSection>
@@ -180,7 +192,7 @@ export function HeroMobile() {
       <section className="flex flex-col px-5 gap-10">
         <article className="flex flex-col gap-5">
           <Heading as="h3" weight="semibold" className="tracking-normal">
-            LOREM IPSUM
+            Confidence without waiting for stat sig.
           </Heading>
           <Text
             size="base"
@@ -188,32 +200,33 @@ export function HeroMobile() {
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
-            LOREM IPSUM
+            Fuse validates changes by synthesizing early metrics, user feedback, and historical patterns, giving you the rigor of A/B testing with a fraction of the time and sample size.
+
           </Text>
         </article>
         <ul className="flex flex-col gap-[10px]">
           <li className="flex items-center gap-4">
             <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
-              Task Scheduling
+              Triangulate across quantitative, qualitative, and historical signals
             </Text>
           </li>
           <li className="flex items-center gap-4">
             <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
-              Lead assignment
+              When signals align, you have confidence to ship
             </Text>
           </li>
           <li className="flex items-center gap-4">
             <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
-              Triggered Notification
+              Real-time confidence scoring as evidence accumulates
             </Text>
           </li>
           <li className="flex items-center gap-4">
             <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
-              Pre-built Templates
+              Integrates with Amplitude, Mixpanel, PostHog, Dovetail, and experimentation tools
             </Text>
           </li>
         </ul>
@@ -226,7 +239,7 @@ export function HeroMobile() {
       <section className="flex flex-col px-5 gap-10">
         <article className="flex flex-col gap-5">
           <Heading as="h3" weight="semibold" className="tracking-normal">
-            LOREM IPSUM
+          Attribution that accounts for the real world.
           </Heading>
           <Text
             size="base"
@@ -234,26 +247,33 @@ export function HeroMobile() {
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
-            LOREM IPSUM
-          </Text>
+Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
+</Text>
         </article>
         <article className="flex flex-col gap-[10px]">
           <div className="flex items-center gap-4">
             <Calendar size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
-              Multi-modal fusion
+              Attribution adjusts for seasonality, concurrent work, and time since launch
             </Text>
           </div>
           <div className="flex items-center gap-4">
             <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
-              Early signal detection
+              Monitor risks, guardrails and tradeoffs as effects accumulate over time 
             </Text>
           </div>
           <div className="flex items-center gap-4">
             <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
-              Systematic learning capture
+              See what data informed each choice, which alternatives were considered, and why features were shipped or killed
+            </Text>
+          </div>
+          <div className="flex items-center gap-4">
+            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <Text size="base" className="leading-relaxed" weight="medium" >
+            See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
+
             </Text>
           </div>
         </article>
@@ -268,7 +288,7 @@ export function HeroMobile() {
           as="h1"
           className="text-[40px] leading-[1.1] font-bold tracking-tight"
         >
-          Orchestrate your existing product stack
+          Institutional memory that compounds over time. 
         </Heading>
         <Text
           size="base"
@@ -276,8 +296,7 @@ export function HeroMobile() {
           variant="secondary"
           className="leading-relaxed max-w-md"
         >
-          Experience the power of product orchestration
-          and take your business to the next level.
+          Knowledge Graph captures the full context of every product decision, what worked, what failed, for whom, and why, creating a compound learning system that makes your organization smarter over time.
         </Text>
       </section>
 
@@ -353,11 +372,33 @@ export function HeroMobile() {
         >
           <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
             <div className="flex-1">
-              <CardTitle className="text-lg font-bold mb-1">
-                Design Partner
-              </CardTitle>
-              <CardDescription className="text-sm">
-                For complex product portfolios
+              <CardDescription className="text-base">
+                <Heading as="h3" weight="bold" className="text-2xl mb-6">
+                  Custom Pricing
+                </Heading>
+
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <Text size="base">Strategy-to-Metrics setup (OKR ingestion, metrics tree)
+                    </Text>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <Text size="base">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)
+                    </Text>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <Text size="base">Executive attribution dashboard + learning bank
+                    </Text>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <Text size="base">Dedicated product partner (weekly working session, clear SLAs)
+                    </Text>
+                  </li>
+                </ul>
               </CardDescription>
             </div>
             <div className="px-3 py-1 rounded-full text-xs font-medium bg-badge-light">
@@ -367,36 +408,9 @@ export function HeroMobile() {
             </div>
           </CardHeader>
 
-          <CardContent className="space-y-6">
-            <div>
-              <Heading as="h3" weight="bold" className="text-2xl mb-6">
-                Custom Pricing
-              </Heading>
-
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
-                  <Text size="base">Multi-product orchestration</Text>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
-                  <Text size="base">Custom learning models</Text>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
-                  <Text size="base">Enhanced email sending</Text>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
-                  <Text size="base">Dedicated success manager</Text>
-                </li>
-              </ul>
-            </div>
-          </CardContent>
-
           <CardFooter className="pt-6 mt-6 border-t-1">
             <Button variant="primary" size="lg" fullWidth>
-              Get started
+              Book demo
             </Button>
           </CardFooter>
         </Card>
@@ -414,28 +428,23 @@ export function HeroMobile() {
             {
               title: "What is Orchestrate?",
               content:
-                "We bridge the gap between strategic goals and tactical product work by telling you what to build, validating it efficiently through multi-modal synthesis, and tracking impact against business objectives.",
+                "We connect strategy to product development by defining builds, validating them efficiently, and tracking impact against business goals.",
               defaultOpen: false,
-            },
-            {
-              title: "Is this another experimentation tool?",
-              content:
-                "Lorep ipsum",
             },
             {
               title: "Do we need to replace our current tools?",
               content:
-                "No. Orchestrate sits above your existing stack as an intelligence layer. We integrate with your analytics platforms, experimentation tools, and research tools. You keep what you have; we coordinate it strategically.",
+                "No, Orchestrate is a layer that integrates with your existing analytics, experimentation, and research tools, coordinating them strategically.",
             },
             {
-              title: "How do you make product decisions?",
+              title: "How does Orchestrate make product decisions?",
               content:
-                "We fuse data signals that are weak individually but strong together. By understanding your quantitative and qualitative data and historical patterns, we enable you to reach confident product decisions faster without sacrificing rigor.",
+                "We fuse quantitative, qualitative, and historical data to deliver confident, rigorously-backed product decisions more rapidly. Our suggested directions always come with clear rationale.",
             },
             {
               title: "Is my data secure with Orchestrate?",
               content:
-                "We integrate with your existing data warehouse and provide self-hosted or hosted options so your data stays protected and private.",
+                "We integrate with your existing data warehouse and offer self-hosted or hosted options, ensuring your data remains private and secure.",
             },
           ]}
           allowMultiple={true}
