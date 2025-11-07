@@ -1,11 +1,69 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Accordion } from "@/components/ui";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 
 export function HeroMobile() {
+  const tabs = [
+    { label: "Without Orchestrate", id: 0 },
+    { label: "With Orchestrate", id: 1 },
+    { label: "Comparison", id: 2 },
+  ];
+
+  const tabImages = [
+    {
+      id: 0,
+      src: "/without-orchestrate.svg",
+      alt: "Dashboard view showcasing strategic clarity",
+    },
+    {
+      id: 1,
+      src: "/with-orchestrate.svg",
+      alt: "Dashboard view highlighting smart recommendations",
+    },
+    {
+      id: 2,
+      src: "/orchestrate-vs-non-orchestrate.svg",
+      alt: "Dashboard comparison illustrating impact attribution",
+    },
+  ];
+
+  const [activeTab, setActiveTab] = useState(0);
+  const [imageTab, setImageTab] = useState(0);
+  const [isImageVisible, setIsImageVisible] = useState(true);
+  const [progressKey, setProgressKey] = useState(0);
+
+  // Handle image fade transition
+  useEffect(() => {
+    if (activeTab === imageTab) return;
+
+    setIsImageVisible(false);
+
+    const timeout = setTimeout(() => {
+      setImageTab(activeTab);
+      requestAnimationFrame(() => setIsImageVisible(true));
+    }, 180);
+
+    return () => clearTimeout(timeout);
+  }, [activeTab, imageTab]);
+
+  // Auto-rotate tabs every 10 seconds with progress bar
+  useEffect(() => {
+    const rotateInterval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % tabs.length);
+      setProgressKey((prev) => prev + 1);
+    }, 10000);
+
+    return () => {
+      clearInterval(rotateInterval);
+    };
+  }, []);
+
+  const activeImage = tabImages.find((image) => image.id === imageTab) ?? tabImages[0];
+
   return (
     <main className="block md:hidden space-y-8 py-14">
       <section className="flex flex-col gap-8 mb-15 px-5">
@@ -41,15 +99,41 @@ export function HeroMobile() {
         </AnimatedSection>
       </section>
 
-      <AnimatedSection delay={getStaggerDelay(1.5)} as="section" className="flex flex-col gap-[14px] w-full mb-15">
-        <Heading
-          as="h6"
-          align="center"
-          className="text-[18px]"
-        >
-          Strategic Clarity
+      <AnimatedSection
+        delay={getStaggerDelay(1.5)}
+        as="section"
+        className="flex flex-col gap-5 w-full mb-15 px-5"
+      >
+        <Heading as="h6" align="center" className="text-[18px]">
+          {tabs[activeTab].label}
         </Heading>
-        <div className="bg-gray-500 h-[236px] w-full" />
+        
+        {/* Progress Bar */}
+        <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden px-5">
+          <div
+            key={progressKey}
+            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"
+          />
+        </div>
+
+        <figure
+          className="gradient-background-tabs rounded-2xl p-4 w-full overflow-hidden"
+          role="tabpanel"
+          id={`hero-mobile-tabpanel-${activeTab}`}
+          aria-labelledby={`hero-mobile-heading`}
+        >
+          <div
+            className={`w-full h-[236px] transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${
+              isImageVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img
+              src={activeImage.src}
+              alt={activeImage.alt}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        </figure>
       </AnimatedSection>
 
       <section className="px-5 flex flex-col gap-10">

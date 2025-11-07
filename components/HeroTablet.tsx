@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Heading, Text, Button, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Accordion } from "@/components/ui";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
@@ -14,6 +14,79 @@ export function HeroTablet() {
     { label: "Smart recommendations", id: 1 },
     { label: "Impact attribution", id: 2 },
   ];
+
+  const tabImages = [
+    {
+      id: 0,
+      src: "/without-orchestrate.svg",
+      alt: "Dashboard view highlighting strategic clarity",
+    },
+    {
+      id: 1,
+      src: "/with-orchestrate.svg",
+      alt: "Dashboard view illustrating smart recommendations",
+    },
+    {
+      id: 2,
+      src: "/orchestrate-vs-non-orchestrate.svg",
+      alt: "Dashboard comparison showcasing impact attribution",
+    },
+  ];
+
+  const [imageTab, setImageTab] = useState(0);
+  const [isImageVisible, setIsImageVisible] = useState(true);
+  const [progressKey, setProgressKey] = useState(0);
+  const rotateIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Handle image fade transition
+  useEffect(() => {
+    if (activeTab === imageTab) return;
+
+    setIsImageVisible(false);
+
+    const timeout = setTimeout(() => {
+      setImageTab(activeTab);
+      requestAnimationFrame(() => setIsImageVisible(true));
+    }, 180);
+
+    return () => clearTimeout(timeout);
+  }, [activeTab, imageTab]);
+
+  // Function to start/restart timers
+  const startTimers = () => {
+    // Clear existing interval
+    if (rotateIntervalRef.current) {
+      clearInterval(rotateIntervalRef.current);
+    }
+
+    // Reset progress animation by changing key
+    setProgressKey((prev) => prev + 1);
+
+    // Start rotation interval
+    rotateIntervalRef.current = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % tabs.length);
+      setProgressKey((prev) => prev + 1);
+    }, 10000);
+  };
+
+  // Auto-rotate tabs every 10 seconds with progress bar
+  useEffect(() => {
+    startTimers();
+
+    return () => {
+      if (rotateIntervalRef.current) {
+        clearInterval(rotateIntervalRef.current);
+      }
+    };
+  }, []);
+
+  // Handle manual tab click
+  const handleTabClick = (tabId: number) => {
+    setActiveTab(tabId);
+    startTimers(); // Restart the timers
+  };
+
+  const activeImage = tabImages.find((image) => image.id === imageTab) ?? tabImages[0];
 
   return (
     <main className="hidden md:block lg:hidden">
@@ -56,19 +129,31 @@ export function HeroTablet() {
             <AnimatedSection delay={getStaggerDelay(1)}>
               <div className="flex justify-center gap-12">
                 {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    role="tab"
-                    onClick={() => setActiveTab(tab.id)}
-                    aria-selected={activeTab === tab.id}
-                    aria-controls={`tabpanel-${tab.id}`}
-                    className={`pb-4 px-1 text-[15px] font-medium transition-all relative ${activeTab === tab.id
-                      ? "text-gray-900"
-                      : "text-gray-500 hover:text-gray-700 border-transparent"
-                      }`}
-                  >
-                    {tab.label}
-                  </button>
+                  <div key={tab.id} className="flex flex-col items-center">
+                    <button
+                      id={`tab-${tab.id}`}
+                      type="button"
+                      role="tab"
+                      onClick={() => handleTabClick(tab.id)}
+                      aria-selected={activeTab === tab.id}
+                      aria-controls={`tabpanel-${tab.id}`}
+                      className={`pb-4 px-1 text-lg font-medium transition-all cursor-pointer focus:outline-none w-[224px] ${activeTab === tab.id
+                        ? "text-gray-900"
+                        : "text-gray-500 hover:text-gray-700"
+                        }`}
+                    >
+                      {tab.label}
+                    </button>
+                    {/* Progress Bar - Only visible for active tab */}
+                    {activeTab === tab.id && (
+                      <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                        <div
+                          key={progressKey}
+                          className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"
+                        />
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </AnimatedSection>
@@ -77,15 +162,21 @@ export function HeroTablet() {
           {/* Dashboard Mockup */}
           <AnimatedSection delay={getStaggerDelay(1.5)}>
             <figure
-              className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-1"
+              className="gradient-background-tabs rounded-2xl p-6"
               role="tabpanel"
               id={`tabpanel-${activeTab}`}
               aria-labelledby={`tab-${activeTab}`}
             >
-              <div className="bg-white rounded-lg p-6">
-                <div className="bg-gray-100 rounded-lg h-[400px] flex items-center justify-center">
-                  <Text className="text-gray-400">Dashboard Mockup - {tabs[activeTab].label}</Text>
-                </div>
+              <div
+                className={`w-full h-[400px] overflow-hidden rounded-xl border border-white/40 bg-white transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${
+                  isImageVisible ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <img
+                  src={activeImage.src}
+                  alt={activeImage.alt}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </figure>
           </AnimatedSection>
