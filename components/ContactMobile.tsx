@@ -2,6 +2,8 @@
 
 import { Heading, Text, Button, Input, Textarea, CardContent, Card } from "@/components/ui";
 import { useContactForm } from "@/hooks/useContactForm";
+import { AnimatedSection } from "./AnimatedSection";
+import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 
 export function ContactMobile() {
   const { formData, errors, isSubmitting, submitStatus, handleChange, handleSubmit } = useContactForm();
@@ -10,12 +12,15 @@ export function ContactMobile() {
     <main className="block md:hidden py-14">
       <section className="px-5 mb-12">
         <article className="flex flex-col gap-6">
+        <AnimatedSection delay={getStaggerDelay(0)}>
           <Heading
             as="h1"
             className="text-4xl leading-[1.2] font-semibold tracking-tight text-center"
           >
             Empowering Teams with Smarter Solutions
           </Heading>
+          </AnimatedSection>
+          <AnimatedSection delay={getStaggerDelay(1)}>
           <Text
             size="base"
             weight="normal"
@@ -24,10 +29,12 @@ export function ContactMobile() {
           >
             We're on a mission to redefine how businesses manage relationships, data, and workflows in a connected world.
           </Text>
+          </AnimatedSection>
         </article>
       </section>
 
       {/* Contact Form */}
+      <AnimatedSection delay={getStaggerDelay(2)}>
       <section className="px-5 mb-12">
         <form onSubmit={handleSubmit} className="space-y-4 p-5">
           <div>
@@ -90,8 +97,9 @@ export function ContactMobile() {
           </Button>
         </form>
       </section>
-
+      </AnimatedSection>
       {/* Address */}
+      <AnimatedSection delay={getStaggerDelay(3)}>
       <section className="px-5 mb-6">
         <Card padding="md" className="bg-gray-100 border-none">
           <CardContent className="space-y-3">
@@ -106,8 +114,9 @@ export function ContactMobile() {
           </CardContent>
         </Card>
       </section>
-
+      </AnimatedSection>
       {/* Get in touch */}
+      <AnimatedSection delay={getStaggerDelay(4)}>
       <section className="px-5">
         <Card padding="md" className="bg-gray-100 border-none">
           <CardContent className="space-y-3">
@@ -128,6 +137,7 @@ export function ContactMobile() {
           </CardContent>
         </Card>
       </section>
+      </AnimatedSection>
     </main>
   );
 }
