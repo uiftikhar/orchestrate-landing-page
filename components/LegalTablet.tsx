@@ -6,7 +6,7 @@ import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 
 export function LegalTablet() {
   return (
-    <main className="hidden md:block lg:hidden py-20">
+    <main className="hidden md:block xl:hidden py-20">
       <div className="max-w-3xl mx-auto px-8">
         {/* Header */}
         <section className="mb-16">

@@ -6,6 +6,12 @@ import { ProposalCard } from './ProposalCard'
 import { TreeConnections } from './TreeConnections'
 import { Proposal } from '../types/strategy'
 
+interface StrategyTreeProps {
+  height?: string | number
+  className?: string
+  style?: React.CSSProperties
+}
+
 const proposals: Proposal[] = [
   {
     id: 1,
@@ -198,42 +204,49 @@ const proposals: Proposal[] = [
   },
 ]
 
-export function StrategyTree() {
+export function StrategyTree({
+  height = '530px',
+  className = '',
+  style = {}
+}: StrategyTreeProps = {}) {
   const visibleProposals = proposals.filter((p) => p.isVisible)
   const rejectedProposals = proposals.filter((p) => !p.isVisible)
 
+  const containerStyle: React.CSSProperties = {
+    height: typeof height === 'number' ? `${height}px` : height,
+    ...style
+  }
+
   return (
     <div
-      className="relative bg-gray-50"
-      style={{
-        width: '942px',
-        height: '530px',
-        margin: '0 auto',
-      }}
+      className={`relative bg-gray-50 w-full ${className}`}
+      style={containerStyle}
       role="img"
       aria-label="Strategy Tree visualization showing Q4 Product Strategy flow to goal to AI agent to proposals"
     >
-      {/* SVG Connections Layer */}
-      <TreeConnections proposals={visibleProposals} />
+      <div>
+        {/* SVG Connections Layer */}
+        <TreeConnections proposals={visibleProposals} />
 
-      {/* Strategy Document */}
-      <StrategyDocument />
+        {/* Strategy Document */}
+        <StrategyDocument />
 
-      {/* Goal Card */}
-      <GoalCard />
+        {/* Goal Card */}
+        <GoalCard />
 
-      {/* AI Agent Card */}
-      <AgentCard />
+        {/* AI Agent Card */}
+        <AgentCard />
 
-      {/* Rejected Proposals (stacked, behind) */}
-      {rejectedProposals.map((proposal) => (
-        <ProposalCard key={proposal.id} proposal={proposal} isRejected />
-      ))}
+        {/* Rejected Proposals (stacked, behind) */}
+        {rejectedProposals.map((proposal) => (
+          <ProposalCard key={proposal.id} proposal={proposal} isRejected />
+        ))}
 
-      {/* Visible Proposals (on top) */}
-      {visibleProposals.map((proposal) => (
-        <ProposalCard key={proposal.id} proposal={proposal} />
-      ))}
+        {/* Visible Proposals (on top) */}
+        {visibleProposals.map((proposal) => (
+          <ProposalCard key={proposal.id} proposal={proposal} />
+        ))}
+      </div>
     </div>
   )
 }

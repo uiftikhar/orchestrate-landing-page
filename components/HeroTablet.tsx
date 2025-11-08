@@ -103,7 +103,7 @@ export function HeroTablet() {
   const activeImage = tabImages.find((image) => image.id === imageTab) ?? tabImages[0];
 
   return (
-    <main className="hidden md:block lg:hidden">
+    <main className="hidden md:block xl:hidden">
       {/* Hero Section */}
       <section className="pt-20">
         <div className="max-w-3xl mx-auto">

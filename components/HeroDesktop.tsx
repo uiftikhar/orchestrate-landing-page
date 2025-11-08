@@ -103,9 +103,8 @@ export function HeroDesktop() {
   const activeImage = tabImages.find((tabImage) => tabImage.id === imageTab) ?? tabImages[0];
 
   return (
-    <main className="hidden lg:block">
+    <main className="hidden block xl:block">
       <section className="pt-20">
-        <div className="">
           <article className="text-center mb-16 px-30">
             <AnimatedSection delay={getStaggerDelay(0)}>
               <Heading
@@ -181,37 +180,42 @@ export function HeroDesktop() {
                   key={activeImage.id}
                   src={activeImage.src}
                   alt={activeImage.alt}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain scale-96 scale-100 rounded-lg"
                 />
               </div>
             </figure>
           </AnimatedSection>
-        </div>
       </section>
 
       {/* Features Section */}
-      <section id="product-delta" className="pt-32 bg-white overflow-hidden">
-        <div className="flex gap-16 items-center">
-          {/* Dashboard Table Image */}
+      <section id="product-delta" className="pt-32 bg-white">
+        <div className="grid grid-cols-[0.9fr_1fr] gap-12 items-center pr-8">
           <figure
-            className="rounded-l-none rounded-r-xl flex-shrink-0 w-[1106px] h-[594px] -ml-[640px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
+            className="rounded-l-none rounded-r-xl h-full bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pr-6"
           >
-            <div className="rounded-lg h-full flex items-center justify-center">
-              <StrategyTree />
+            <div className="h-full bg-white rounded-r-xl flex">
+              <img
+                src="/strategy-tree.svg"
+                alt="Strategy Tree"
+                className="w-full h-auto scale-96 "
+              />
             </div>
           </figure>
-          <article className="pr-32 flex-1 ">
+          <article >
             <Heading
               as="h2"
-              className="text-[48px] leading-[1.15] font-bold mb-8"
+              className="text-[48px] leading-[1.15] font-semibold mb-5"
             >
-              Your team has 100 ideas. We tell you which matter.
+              Your team has 100 ideas.<br />
+              We tell you which matter.
             </Heading>
-            <Text className="text-gray-600 mb-10 text-[18px] leading-[1.6]" weight="medium">
-              Orchestrate analyzes your strategy, historical data, and current signals to propose ranked product changes, so you only invest in what's most likely to move your metrics.
+            <Text className="text-gray-600 pb-10 text-[18px] leading-[1.6]" weight="medium">
+              Orchestrate analyzes your strategy, historical data,<br />
+              and current signals to propose ranked product changes, so <br />
+              you only invest in what's most likely to move your metrics.
             </Text>
 
-            <ul className="space-y-4">
+            <ul className="space-y-[10px]">
               <li className="flex items-center gap-4">
                 <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
                 <Text size="lg" className="leading-relaxed" weight="medium">
@@ -221,19 +225,22 @@ export function HeroDesktop() {
               <li className="flex items-center gap-4">
                 <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
                 <Text size="lg" className="leading-relaxed" weight="medium">
-                  Multi-modal evidence for each proposal (quant + qual + historical)
+                  Multi-modal evidence for each proposal <br />
+                  quant + qual + historical)
                 </Text>
               </li>
               <li className="flex items-center gap-4">
                 <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
                 <Text size="lg" className="leading-relaxed" weight="medium">
-                  Export deltas directly into Figma, Cursor, Claude Code, or build your own way
+                  Export deltas directly into Figma, Cursor, Claude <br />
+                  Code, or build your own way
                 </Text>
               </li>
               <li className="flex items-center gap-4">
                 <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
                 <Text size="lg" className="leading-relaxed" weight="medium">
-                  Learns from every shipped change, proposals get smarter over time
+                  Learns from every shipped change, proposals get<br />
+                  smarter over time
                 </Text>
               </li>
             </ul>
@@ -243,20 +250,19 @@ export function HeroDesktop() {
 
       {/* Additional Features Section */}
       <section id="fuse-evaluate" className="pt-32 bg-white overflow-hidden">
-        <div className="flex gap-16 items-center">
-          <article className="pl-32 flex-1">
+        <div className="grid grid-cols-[1fr_0.98fr] gap-12 items-center">
+          <article className="pl-30">
             <Heading
               as="h2"
-              className="text-[48px] leading-[1.15] font-bold mb-8"
+              className="text-[48px] leading-[1.15] font-semibold mb-5"
             >
               Confidence without waiting for stat sig.
             </Heading>
-            <Text className="text-gray-600 mb-10 text-[18px] leading-[1.6]" weight="medium">
+            <Text className="text-gray-600 pb-10 text-[18px] leading-[1.6]" weight="medium">
               Fuse validates changes by synthesizing early metrics, user feedback, and historical patterns, giving you the rigor of A/B testing with a fraction of the time and sample size.
-
             </Text>
 
-            <ul className="space-y-4">
+            <ul className="space-y-[10px]">
               <li className="flex items-center gap-4">
                 <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
                 <Text size="lg" className="leading-relaxed" weight="medium">
@@ -285,40 +291,49 @@ export function HeroDesktop() {
           </article>
 
           {/* Feature Image */}
+
           <figure
-            className="rounded-r-none rounded-l-xl flex-shrink-0 w-[1106px] h-[594px] -mr-[740px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
+            className="rounded-l-xl h-full bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pl-6"
           >
-            <div className="rounded-lg h-full flex items-center justify-center">
-              <SignalFusionViz />
+            <div className="h-full bg-white rounded-l-xl pt-4 pl-4 ">
+              <img
+                src="/signal-fusion.svg"
+                alt="fusion of various signals"
+                className="w-full h-auto origin-top-left scale-150"
+              />
             </div>
           </figure>
         </div>
       </section>
 
       {/* Additional Features Section */}
-      <section id="impact-trace" className="pt-32 bg-white overflow-hidden">
-        <div className="flex gap-16 items-center">
+      <section id="impact-attribution" className="pt-32 bg-white overflow-hidden">
+        <div className="grid grid-cols-[0.9fr_1fr] gap-12 items-center pr-30">
           {/* Feature Image */}
           <figure
-            className="rounded-l-none rounded-r-xl flex-shrink-0 w-[1106px] h-[594px] -ml-[640px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
+            className="rounded-l-none rounded-r-xl h-full bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pr-6"
           >
-            <div className="rounded-lg h-full flex items-center justify-center">
-              <ImpactAttributionImagery />
+            <div className="h-full bg-white rounded-r-xl flex">
+              <img
+                src="/impact-attribution.svg"
+                alt="Impact Attribution"
+                className="w-full h-auto scale-96 "
+              />
             </div>
           </figure>
 
-          <article className="pr-32 flex-1">
+          <article >
             <Heading
               as="h2"
-              className="text-[48px] leading-[1.15] font-bold mb-8"
+              className="text-[48px] leading-[1.15] font-semibold mb-5"
             >
               Attribution that accounts for the real world.
             </Heading>
-            <Text className="text-gray-600 mb-10 text-[18px] leading-[1.6]" weight="medium">
+            <Text className="text-gray-600 pb-10 text-[18px] leading-[1.6]" weight="medium">
               Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
             </Text>
 
-            <ul className="space-y-4">
+            <ul className="space-y-[10px]">
               <li className="flex items-center gap-4">
                 <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
                 <Text size="lg" className="leading-relaxed" weight="medium">
@@ -428,7 +443,7 @@ export function HeroDesktop() {
                 Custom Pricing
               </Heading>
 
-              <ul className="space-y-4">
+              <ul className="space-y-[10px]">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>

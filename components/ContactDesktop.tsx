@@ -9,7 +9,7 @@ export function ContactDesktop() {
   const { formData, errors, isSubmitting, submitStatus, handleChange, handleSubmit } = useContactForm();
 
   return (
-    <main className="hidden lg:block px-30">
+    <main className="hidden xl:block px-30">
       <section className="py-32">
         <article className="mb-16 max-w-[600px]">
 
