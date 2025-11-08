@@ -119,7 +119,7 @@ export function HeroMobile() {
         <Heading as="h6" align="center" className="text-[18px]">
           {tabs[activeTab].label}
         </Heading>
-        
+
         {/* Progress Bar */}
         <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden px-5">
           <div
@@ -135,9 +135,8 @@ export function HeroMobile() {
           aria-labelledby={`hero-mobile-heading`}
         >
           <div
-            className={`w-full h-[236px] transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${
-              isImageVisible ? "opacity-100" : "opacity-0"
-            }`}
+            className={`w-full h-[236px] transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
+              }`}
           >
             <img
               src={activeImage.src}
@@ -190,9 +189,9 @@ export function HeroMobile() {
       </section>
 
       <section className="px-5 mb-10">
-        <div 
+        <div
           className="flex items-center justify-center"
-          style={{ 
+          style={{
             height: '185px', // 530px * 0.35 = 185.5px
             overflow: 'hidden'
           }}
@@ -247,9 +246,9 @@ export function HeroMobile() {
       </section>
 
       <section className="px-5 mb-10">
-        <div 
+        <div
           className="flex items-center justify-center"
-          style={{ 
+          style={{
             height: '185px', // 530px * 0.35 = 185.5px
             overflow: 'hidden'
           }}
@@ -263,7 +262,7 @@ export function HeroMobile() {
       <section id="impact-trace" className="flex flex-col px-5 gap-10">
         <article className="flex flex-col gap-5">
           <Heading as="h3" weight="semibold" className="tracking-normal">
-          Attribution that accounts for the real world.
+            Attribution that accounts for the real world.
           </Heading>
           <Text
             size="base"
@@ -271,8 +270,8 @@ export function HeroMobile() {
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
-Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
-</Text>
+            Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
+          </Text>
         </article>
         <article className="flex flex-col gap-[10px]">
           <div className="flex items-center gap-4">
@@ -284,7 +283,7 @@ Impact Trace isolates the impact of each product change while adjusting for seas
           <div className="flex items-center gap-4">
             <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
-              Monitor risks, guardrails and tradeoffs as effects accumulate over time 
+              Monitor risks, guardrails and tradeoffs as effects accumulate over time
             </Text>
           </div>
           <div className="flex items-center gap-4">
@@ -296,7 +295,7 @@ Impact Trace isolates the impact of each product change while adjusting for seas
           <div className="flex items-center gap-4">
             <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
-            See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
+              See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
 
             </Text>
           </div>
@@ -304,9 +303,9 @@ Impact Trace isolates the impact of each product change while adjusting for seas
       </section>
 
       <section className="px-5 mb-10">
-        <div 
+        <div
           className="flex items-center justify-center"
-          style={{ 
+          style={{
             height: '185px', // 530px * 0.35 = 185.5px
             overflow: 'hidden'
           }}
@@ -322,7 +321,7 @@ Impact Trace isolates the impact of each product change while adjusting for seas
           as="h1"
           className="text-[40px] leading-[1.1] font-bold tracking-tight"
         >
-          Institutional memory that compounds over time. 
+          Institutional memory that compounds over time.
         </Heading>
         <Text
           size="base"
@@ -335,7 +334,7 @@ Impact Trace isolates the impact of each product change while adjusting for seas
       </section>
 
       <section className="px-5 mb-10">
-        <div 
+        <div
           className="w-full rounded-lg overflow-hidden"
           style={{
             height: '250px',
@@ -412,31 +411,31 @@ Impact Trace isolates the impact of each product change while adjusting for seas
           padding="lg"
           className="rounded-3xl border border-gray-200 bg-pricing-gradient"
         >
-        <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
-          <div className="flex-1">
-            <Heading as="h3" weight="bold" className="text-2xl mb-6">
-              Custom Pricing
-            </Heading>
+          <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
+            <div className="flex-1">
+              <Heading as="h3" weight="bold" className="text-2xl mb-6">
+                Custom Pricing
+              </Heading>
 
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
-              </li>
-            </ul>
-          </div>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
+                </li>
+              </ul>
+            </div>
             <div className="px-3 py-1 rounded-full text-xs font-medium bg-badge-light">
               <span className="text-gradient-purple-orange">
                 Design Partnership

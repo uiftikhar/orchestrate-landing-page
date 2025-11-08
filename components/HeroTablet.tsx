@@ -361,7 +361,7 @@ export function HeroTablet() {
         <div className="max-w-3xl mx-auto">
           <article className="mb-12 max-w-[600px]">
             <Heading as="h2" className="text-[40px] leading-[1.2] mb-6" weight="semibold">
-              Institutional memory that compounds over time. 
+              Institutional memory that compounds over time.
             </Heading>
             <Text className="text-gray-600 text-lg leading-relaxed max-w-xl">
               Knowledge Graph captures the full context of every product decision, what worked, what failed, for whom, and why, creating a compound learning system that makes your organization smarter over time.

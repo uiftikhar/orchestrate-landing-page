@@ -13,11 +13,11 @@ export default function Home() {
   return (
     <>
       <Navigation />
-    <main>
+      <main>
         <HeroMobile />
         <HeroTablet />
         <HeroDesktop />
-    </main>
+      </main>
       <Footer />
     </>
   );

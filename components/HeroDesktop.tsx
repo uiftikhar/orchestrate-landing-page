@@ -525,9 +525,9 @@ export function HeroDesktop() {
           </CardContent>
 
           <CardFooter className="pt-5 mt-5 border-t-0 flex justify-center">
-              <Button variant="secondary" size="md" asChild>
-                <a href="/contact">Book demo</a>
-              </Button>
+            <Button variant="secondary" size="md" asChild>
+              <a href="/contact">Book demo</a>
+            </Button>
           </CardFooter>
         </Card>
       </section>

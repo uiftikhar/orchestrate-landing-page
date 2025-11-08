@@ -4,16 +4,6 @@ import Link from "next/link";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-
-  //   href="#product-delta"
-  // href="#impact-trace"
-  // href="#fuse-evaluate"
-  // href="#knowledge-graph"
-  // href="#product-delta"
-  // href="#impact-trace"
-  // href="#fuse-evaluate"
-  // href="#knowledge-graph"
-
   const productLinks = [
     { label: "Product-delta", href: "/#product-delta" },
     { label: "Impact-trace", href: "/#impact-trace" },
