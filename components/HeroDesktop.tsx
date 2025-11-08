@@ -105,86 +105,86 @@ export function HeroDesktop() {
   return (
     <main className="hidden block xl:block">
       <section className="pt-20">
-          <article className="text-center mb-16 px-30">
-            <AnimatedSection delay={getStaggerDelay(0)}>
-              <Heading
-                as="h1"
-                className="text-[56px] leading-[1.1] font-bold mb-8 tracking-tight max-w-[540px]"
-              >
-                Product execution, augmented
-              </Heading>
-            </AnimatedSection>
-            <AnimatedSection delay={getStaggerDelay(0.5)}>
-              <div className="flex items-end justify-between gap-6">
-                <Text
-                  size="lg"
-                  className="text-gray-600 leading-relaxed max-w-[530px]"
-                >
-                  Orchestrate connects your strategic goals to the product changes that actually move them. It learns from every product change, proves what drives impact, and tells you what to build next
-                </Text>
-                <Button variant="primary" size="lg" className="px-6 text-sm font-medium">
-                  Book a demo
-                </Button>
-              </div>
-            </AnimatedSection>
-          </article>
-
-          {/* Tabs */}
-          <div className="mt-20 px-30" role="tablist" aria-label="Dashboard views">
-            <AnimatedSection delay={getStaggerDelay(1)}>
-              <div className="flex justify-center gap-12">
-                {tabs.map((tab) => (
-                  <div key={tab.id} className="flex flex-col items-center">
-                    <button
-                      role="tab"
-                      onClick={() => handleTabClick(tab.id)}
-                      aria-selected={activeTab === tab.id}
-                      aria-controls={`tabpanel-${tab.id}`}
-                      className={`pb-4 px-1 text-lg font-medium transition-all cursor-pointer focus:outline-none w-[300px] ${activeTab === tab.id
-                        ? "text-gray-900"
-                        : "text-gray-500 hover:text-gray-700"
-                        }`}
-                    >
-                      {tab.label}
-                    </button>
-                    {/* Progress Bar - Only visible for active tab */}
-                    {activeTab === tab.id && (
-                      <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-                        <div
-                          key={progressKey}
-                          className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"
-                        />
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          </div>
-
-          {/* 986 x 543  p-32*/}
-
-          {/* Dashboard Mockup */}
-          <AnimatedSection delay={getStaggerDelay(1.5)}>
-            <figure
-              className="gradient-background-tabs p-14"
-              role="tabpanel"
-              id={`tabpanel-${activeTab}`}
-              aria-labelledby={`tab-${activeTab}`}
+        <article className="text-center mb-16 px-30">
+          <AnimatedSection delay={getStaggerDelay(0)}>
+            <Heading
+              as="h1"
+              className="text-[64px] leading-[1.1] font-semibold mb-8 tracking-tight max-w-[540px]"
             >
-              <div
-                className={`w-full h-full transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
-                  }`}
-              >
-                <img
-                  key={activeImage.id}
-                  src={activeImage.src}
-                  alt={activeImage.alt}
-                  className="w-full h-full object-contain scale-96 scale-100 rounded-lg"
-                />
-              </div>
-            </figure>
+              Product execution, augmented
+            </Heading>
           </AnimatedSection>
+          <AnimatedSection delay={getStaggerDelay(0.5)}>
+            <div className="flex items-end justify-between gap-6">
+              <Text
+                size="lg"
+                className="text-gray-600 leading-relaxed max-w-[530px]"
+              >
+                Orchestrate connects your strategic goals to the product changes that actually move them. It learns from every product change, proves what drives impact, and tells you what to build next
+              </Text>
+              <Button variant="primary" size="lg" className="px-6 text-sm font-medium">
+                Book a demo
+              </Button>
+            </div>
+          </AnimatedSection>
+        </article>
+
+        {/* Tabs */}
+        <div className="mt-20 px-30" role="tablist" aria-label="Dashboard views">
+          <AnimatedSection delay={getStaggerDelay(1)}>
+            <div className="flex justify-center gap-12">
+              {tabs.map((tab) => (
+                <div key={tab.id} className="flex flex-col items-center">
+                  <button
+                    role="tab"
+                    onClick={() => handleTabClick(tab.id)}
+                    aria-selected={activeTab === tab.id}
+                    aria-controls={`tabpanel-${tab.id}`}
+                    className={`pb-4 px-1 text-lg font-medium transition-all cursor-pointer focus:outline-none w-[300px] ${activeTab === tab.id
+                      ? "text-gray-900"
+                      : "text-gray-500 hover:text-gray-700"
+                      }`}
+                  >
+                    {tab.label}
+                  </button>
+                  {/* Progress Bar - Only visible for active tab */}
+                  {activeTab === tab.id && (
+                    <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        key={progressKey}
+                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+
+        {/* 986 x 543  p-32*/}
+
+        {/* Dashboard Mockup */}
+        <AnimatedSection delay={getStaggerDelay(1.5)}>
+          <figure
+            className="gradient-background-tabs px-30 py-17"
+            role="tabpanel"
+            id={`tabpanel-${activeTab}`}
+            aria-labelledby={`tab-${activeTab}`}
+          >
+            <div
+              className={`w-full h-full transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
+                }`}
+            >
+              <img
+                key={activeImage.id}
+                src={activeImage.src}
+                alt={activeImage.alt}
+                className="w-full h-full object-contain scale-96 scale-100 rounded-lg"
+              />
+            </div>
+          </figure>
+        </AnimatedSection>
       </section>
 
       {/* Features Section */}
@@ -249,7 +249,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Additional Features Section */}
-      <section id="fuse-evaluate" className="pt-32 bg-white overflow-hidden">
+      <section id="fuse-evaluate" className="pt-32 bg-white">
         <div className="grid grid-cols-[1fr_0.98fr] gap-12 items-center">
           <article className="pl-30">
             <Heading
@@ -293,13 +293,13 @@ export function HeroDesktop() {
           {/* Feature Image */}
 
           <figure
-            className="rounded-l-xl h-full bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pl-6"
+            className="h-[104%] rounded-l-xl bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pl-6"
           >
-            <div className="h-full bg-white rounded-l-xl pt-4 pl-4 ">
+            <div className="h-full bg-white rounded-l-xl pt-4 pl-4 flex">
               <img
                 src="/signal-fusion.svg"
                 alt="fusion of various signals"
-                className="w-full h-auto origin-top-left scale-150"
+                className="w-full h-auto origin-top-left"
               />
             </div>
           </figure>
@@ -307,7 +307,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Additional Features Section */}
-      <section id="impact-attribution" className="pt-32 bg-white overflow-hidden">
+      <section id="impact-attribution" className="pt-32 bg-white">
         <div className="grid grid-cols-[0.9fr_1fr] gap-12 items-center pr-30">
           {/* Feature Image */}
           <figure
@@ -363,75 +363,66 @@ export function HeroDesktop() {
         </div>
       </section>
 
-      {/* Features with Orange Icons */}
-      <section id="knowledge-graph" className="pt-20 px-30">
-        <div>
-          <article className="mb-12 max-w-[600px]">
-            <Heading as="h2" className="text-[48px] leading-[1.2] mb-6" weight="semibold">
+      {/* knowledge graph section */}
+      <section id="fuse-evaluate" className="pt-32 bg-white">
+        <div className="grid grid-cols-[1fr_0.98fr] gap-12 items-center">
+          <article className="pl-30">
+            <Heading
+              as="h2"
+              className="text-[48px] leading-[1.15] font-semibold mb-5"
+            >
               Institutional memory that compounds over time.
             </Heading>
-            <Text className="text-gray-600 leading-relaxed max-w-xl" size="xl">
+            <Text className="text-gray-600 pb-10 text-[18px] leading-[1.6]" weight="medium">
               Knowledge Graph captures the full context of every product decision, what worked, what failed, for whom, and why, creating a compound learning system that makes your organization smarter over time.
-
             </Text>
+
+            <ul className="space-y-[10px]">
+              <li className="flex items-center gap-4">
+                <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Automatic context capture: Every decision, alternative, and outcome with full reasoning, not just results
+                </Text>
+              </li>
+              <li className="flex items-center gap-4">
+                <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Cross-team intelligence: What growth learns informs retention, what one team discovers helps everyone
+                </Text>
+              </li>
+              <li className="flex items-center gap-4">
+                <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Powers future decisions: Historical patterns feed Delta Proposals and validation confidence
+                </Text>
+              </li>
+              <li className="flex items-center gap-4">
+                <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Enterprise-grade protection: Self-hosted or managed, your learnings stay under your control
+                </Text>
+              </li>
+            </ul>
           </article>
 
-          {/* 	746 × 420 px */}
           {/* Feature Image */}
+
           <figure
-            className="rounded-xl p-8 relative overflow-hidden bg-[url(/gradient-yellow-purple-background.png)] bg-cover bg-center bg-no-repeat"
-            style={{ minHeight: '420px' }}
+            className="h-[104%] rounded-l-xl bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pl-6"
           >
-            <div className="w-full h-full" style={{ minHeight: '350px' }}>
-              <KnowledgeGraph />
+            <div className="h-full bg-white rounded-l-xl pt-4 pl-4 flex">
+              <img
+                src="/knowledge-graph.svg"
+                alt="Knowledge Graph"
+                className="w-full h-auto"
+              />
             </div>
           </figure>
-
-          <div className="grid grid-cols-3 gap-6 mt-6">
-            <article className="flex flex-col gap-3 p-10">
-              <GitMerge size={24} color="#FF8C00" aria-hidden="true" />
-              <Heading as="h3" className="text-2xl font-semibold mt-8">
-                Effortless organization
-              </Heading>
-              <Text variant="secondary" size="base" className="leading-relaxed">
-                Centralize all customer data for easy access and better management.
-              </Text>
-            </article>
-
-            <article className="flex flex-col gap-3 p-10">
-              <Flame size={24} color="#FF8C00" aria-hidden="true" />
-              <Heading as="h3" className="text-2xl font-semibold mt-8">
-                Boosted productivity
-              </Heading>
-              <Text variant="secondary" size="base" className="leading-relaxed">
-                Automate tasks to save time and focus on what truly matters.
-              </Text>
-            </article>
-
-            <article className="flex flex-col gap-3 p-10">
-              <LineChart size={24} color="#FF8C00" aria-hidden="true" />
-              <Heading as="h3" className="text-2xl font-semibold mt-8">
-                Data-driven<br /> growth
-              </Heading>
-              <Text variant="secondary" size="base" className="leading-relaxed">
-                Leverage real-time analytics to make smarter, faster business decisions.
-              </Text>
-            </article>
-          </div>
         </div>
       </section>
 
       {/* Pricing Section */}
       <section className="pt-20 bg-white px-30">
-        <article className="mb-12">
-          <Heading as="h2" className="text-[48px] leading-[1.2] font-bold mb-6">
-            Simple, transparent pricing <br /> plans for every team
-          </Heading>
-          <Text className="text-gray-600 text-xl leading-relaxed max-w-xl">
-            Choose a plan that fits your business needs and start delivering better customer experiences today.
-          </Text>
-        </article>
-
         <Card
           variant="outlined"
           padding="lg"
