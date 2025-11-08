@@ -5,10 +5,6 @@ import { Heading, Text, Button, Accordion, Card, CardContent, CardFooter, CardHe
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
-import { StrategyTree } from "./StrategyTree";
-import { SignalFusionViz } from "./SignalFusionViz";
-import { ImpactAttributionImagery } from "./ImpactAttributionImagery";
-import { KnowledgeGraph } from "./KnowledgeGraph";
 
 // Constants defined outside component to prevent recreation on every render
 const ROTATION_INTERVAL_MS = 10000;
@@ -306,7 +302,7 @@ export function HeroDesktop() {
         </div>
       </section>
 
-      {/* Additional Features Section */}
+    {/* Additionahl Features Section */}
       <section id="impact-trace" className="mt-32 bg-white">
         <div className="grid grid-cols-[0.9fr_1fr] gap-12 items-center pr-30">
           {/* Feature Image */}

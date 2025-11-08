@@ -74,8 +74,8 @@ export function Navigation() {
 
   return (
     <nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="px-4 sm:px-6 lg:px-8 xl:px-30">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="px-4 sm:px-6 md:px-8 xl:px-30">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Left Section with Agentic Tools Dropdown */}
           <div className="flex items-center gap-2">
             {/* Logo */}
@@ -89,7 +89,7 @@ export function Navigation() {
               />
             </a>
             {/* Agentic Tools Dropdown */}
-            <div className="relative hidden lg:block">
+            <div className="relative hidden md:block">
               <button
                 onClick={() => setAgenticToolsOpen(!agenticToolsOpen)}
                 className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-950 transition-colors"
@@ -122,7 +122,7 @@ export function Navigation() {
                     className="fixed inset-0 z-10"
                     onClick={() => setAgenticToolsOpen(false)}
                   />
-                  <div className="absolute top-full left-0 mt-2 w-[680px] bg-white rounded-lg shadow-lg border border-gray-200 p-6 z-20">
+                  <div className="absolute top-full left-0 mt-2 -translate-x-9 w-[680px] bg-white rounded-lg shadow-lg border border-gray-200 p-6 z-20">
                     <div className="grid grid-cols-2 gap-6">
                       {/* Product-delta */}
                       <a
@@ -209,7 +209,7 @@ export function Navigation() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             <a
               href="/contact"
               className="text-sm text-gray-700 hover:text-gray-950 transition-colors"
@@ -225,7 +225,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-gray-950 transition-colors"
+            className="md:hidden p-2 text-gray-700 hover:text-gray-950 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -266,7 +266,7 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4">
               <button
                 onClick={() => setAgenticToolsOpen(!agenticToolsOpen)}

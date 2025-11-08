@@ -106,7 +106,7 @@ export function HeroMobile() {
         </article>
         <AnimatedSection delay={getStaggerDelay(1)} as="article" className="flex flex-row gap-3">
           <Button variant="primary" size="lg" fullWidth asChild>
-            <a href="/contact">Book a demo</a>
+            <a href="/contact">Book demo</a>
           </Button>
         </AnimatedSection>
       </section>
@@ -511,7 +511,7 @@ export function HeroMobile() {
                 Get started
               </Button>
               <Button variant="primary" size="md" fullWidth asChild>
-                <a href="/contact">Book a demo</a>
+                <a href="/contact">Book demo</a>
               </Button>
             </article>
           </CardFooter>
