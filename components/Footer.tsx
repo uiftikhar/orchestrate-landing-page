@@ -55,12 +55,12 @@ export function Footer() {
                 <ul className="space-y-3">
                   {productLinks.map((link) => (
                     <li key={link.href}>
-                      <Link
+                      <a
                         href={link.href}
                         className="text-white/70 hover:text-white transition-colors text-sm"
                       >
                         {link.label}
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -124,12 +124,12 @@ export function Footer() {
               <ul className="space-y-3">
                 {productLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
+                    <a
                       href={link.href}
                       className="text-white/70 hover:text-white transition-colors text-sm"
                     >
                       {link.label}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
