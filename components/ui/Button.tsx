@@ -33,6 +33,11 @@ export interface ButtonProps
    */
   rightIcon?: React.ReactNode;
   
+  /**
+   * If true, the button will render its child element and merge props
+   */
+  asChild?: boolean;
+  
   children: React.ReactNode;
 }
 
@@ -55,6 +60,15 @@ const sizeClasses = {
   xl: "px-8 py-4 text-xl",
 };
 
+// Explicit text colors for asChild links to override default anchor styles
+const variantTextColors = {
+  primary: "#ffffff",
+  secondary: "#000000",
+  outline: "rgb(10, 10, 10)",
+  ghost: "rgb(10, 10, 10)",
+  link: "rgb(10, 10, 10)",
+};
+
 
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -69,6 +83,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       children,
       disabled,
+      asChild = false,
       ...props
     },
     ref
@@ -80,6 +95,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       fullWidth && "w-full",
       className
     );
+
+    if (asChild && React.isValidElement(children)) {
+      return React.cloneElement(children as React.ReactElement<any>, {
+        className: cn(classes, "no-underline", (children as any).props.className),
+        style: {
+          color: variantTextColors[variant],
+          textDecoration: 'none',
+          ...(children as any).props.style,
+        },
+        ...props,
+      });
+    }
 
     return (
       <button

@@ -127,8 +127,8 @@ export function HeroTablet() {
                   Orchestrate connects your strategic goals to the product changes that actually move them. It learns from every product change, proves what drives impact, and tells you what to build next
                 </Text>
                 <div className="flex gap-3 whitespace-nowrap">
-                  <Button variant="primary" size="lg" className="px-6 text-sm font-medium">
-                    Book a demo
+                  <Button variant="primary" size="lg" className="px-6 text-sm font-medium" asChild>
+                    <a href="/contact">Book a demo</a>
                   </Button>
                 </div>
               </div>
@@ -464,8 +464,8 @@ export function HeroTablet() {
             </CardHeader>
 
             <CardFooter className="pt-6 mt-6 border-t-1">
-              <Button variant="primary" size="lg" fullWidth>
-                Book demo
+              <Button variant="primary" size="lg" fullWidth asChild>
+                <a href="/contact">Book demo</a>
               </Button>
             </CardFooter>
           </Card>
@@ -533,8 +533,8 @@ export function HeroTablet() {
               <Button variant="secondary" size="md">
                 Get started
               </Button>
-              <Button variant="primary" size="md">
-                Book a demo
+              <Button variant="primary" size="md" asChild>
+                <a href="/contact">Book a demo</a>
               </Button>
             </article>
           </CardFooter>

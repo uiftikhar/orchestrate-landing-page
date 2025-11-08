@@ -4,17 +4,27 @@ import Link from "next/link";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
+
+  //   href="#product-delta"
+  // href="#impact-trace"
+  // href="#fuse-evaluate"
+  // href="#knowledge-graph"
+  // href="#product-delta"
+  // href="#impact-trace"
+  // href="#fuse-evaluate"
+  // href="#knowledge-graph"
+
   const productLinks = [
-    { label: "Integrations", href: "#integrations" },
-    { label: "No-Code database", href: "#database" },
-    { label: "Workflow builder", href: "#workflow" },
-    { label: "Custom AI Agent", href: "#ai-agent" },
+    { label: "Product-delta", href: "/#product-delta" },
+    { label: "Impact-trace", href: "/#impact-trace" },
+    { label: "Fuse-evaluate", href: "/#fuse-evaluate" },
+    { label: "Knowledge-graph", href: "/#knowledge-graph" },
   ];
 
   const companyLinks = [
-    { label: "About", href: "about" },
-    { label: "Contact us", href: "contact" },
-    { label: "Legal", href: "legal" },
+    { label: "About", href: "/about" },
+    { label: "Contact us", href: "/contact" },
+    { label: "Legal", href: "/legal" },
   ];
 
   return (
@@ -39,8 +49,8 @@ export function Footer() {
             <div className="space-y-10 pr-10">
               {/* Product Column */}
               <div>
-                <Heading as="h6" weight="semibold" className="text-white mb-4">
-                  Product
+                <Heading as="h6" weight="semibold" className="text-sm text-white font-medium mb-4 opacity-70">
+                  Agentic Tools
                 </Heading>
                 <ul className="space-y-3">
                   {productLinks.map((link) => (
@@ -58,7 +68,7 @@ export function Footer() {
 
               {/* Company Column */}
               <div>
-                <Heading as="h6" weight="semibold" className="text-white mb-4">
+                <Heading as="h6" weight="semibold" className="text-sm text-white font-medium mb-4 opacity-70">
                   Company
                 </Heading>
                 <ul className="space-y-3">
@@ -108,8 +118,8 @@ export function Footer() {
           <div className="flex gap-16 lg:gap-24">
             {/* Product Column */}
             <div>
-              <Heading as="h6" weight="semibold" className="text-white mb-4">
-                Product
+              <Heading as="h6" weight="semibold" className="text-sm text-white font-medium mb-4 opacity-70">
+                Agentic Tools
               </Heading>
               <ul className="space-y-3">
                 {productLinks.map((link) => (
@@ -127,7 +137,7 @@ export function Footer() {
 
             {/* Company Column */}
             <div>
-              <Heading as="h6" weight="semibold" className="text-white mb-4">
+              <Heading as="h6" weight="semibold" className="text-sm text-white font-medium mb-4 opacity-70">
                 Company
               </Heading>
               <ul className="space-y-3">

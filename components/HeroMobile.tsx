@@ -105,8 +105,8 @@ export function HeroMobile() {
           </AnimatedSection>
         </article>
         <AnimatedSection delay={getStaggerDelay(1)} as="article" className="flex flex-row gap-3">
-          <Button variant="primary" size="lg" fullWidth>
-            Book a demo
+          <Button variant="primary" size="lg" fullWidth asChild>
+            <a href="/contact">Book a demo</a>
           </Button>
         </AnimatedSection>
       </section>
@@ -445,8 +445,8 @@ Impact Trace isolates the impact of each product change while adjusting for seas
           </CardHeader>
 
           <CardFooter className="pt-6 mt-6 border-t-1">
-            <Button variant="primary" size="lg" fullWidth>
-              Book demo
+            <Button variant="primary" size="lg" fullWidth asChild>
+              <a href="/contact">Book demo</a>
             </Button>
           </CardFooter>
         </Card>
@@ -511,8 +511,8 @@ Impact Trace isolates the impact of each product change while adjusting for seas
               <Button variant="secondary" size="md" fullWidth>
                 Get started
               </Button>
-              <Button variant="primary" size="md" fullWidth>
-                Book a demo
+              <Button variant="primary" size="md" fullWidth asChild>
+                <a href="/contact">Book a demo</a>
               </Button>
             </article>
           </CardFooter>

@@ -104,8 +104,8 @@ export function HeroDesktop() {
 
   return (
     <main className="hidden block xl:block">
-      <section className="pt-20">
-        <article className="text-center mb-16 px-30">
+      <section className="mt-40">
+        <article className="text-center px-30 pb-40">
           <AnimatedSection delay={getStaggerDelay(0)}>
             <Heading
               as="h1"
@@ -122,15 +122,15 @@ export function HeroDesktop() {
               >
                 Orchestrate connects your strategic goals to the product changes that actually move them. It learns from every product change, proves what drives impact, and tells you what to build next
               </Text>
-              <Button variant="primary" size="lg" className="px-6 text-sm font-medium">
-                Book a demo
+              <Button variant="primary" size="lg" className="px-6 text-sm font-medium" asChild>
+                <a href="/contact">Book demo</a>
               </Button>
             </div>
           </AnimatedSection>
         </article>
 
         {/* Tabs */}
-        <div className="mt-20 px-30" role="tablist" aria-label="Dashboard views">
+        <div className="px-30" role="tablist" aria-label="Dashboard views">
           <AnimatedSection delay={getStaggerDelay(1)}>
             <div className="flex justify-center gap-12">
               {tabs.map((tab) => (
@@ -152,7 +152,7 @@ export function HeroDesktop() {
                     <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
                       <div
                         key={progressKey}
-                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"
+                        className="h-full animate-progress bg-gradient-to-r from-[#f3e7d9] to-[#e9cbaf]"
                       />
                     </div>
                   )}
@@ -167,20 +167,20 @@ export function HeroDesktop() {
         {/* Dashboard Mockup */}
         <AnimatedSection delay={getStaggerDelay(1.5)}>
           <figure
-            className="gradient-background-tabs px-30 py-17"
+            className="py-16 bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
             role="tabpanel"
             id={`tabpanel-${activeTab}`}
             aria-labelledby={`tab-${activeTab}`}
           >
             <div
-              className={`w-full h-full transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
+              className={`flex justify-center items-center w-full h-[700px] rounded-lg transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
                 }`}
             >
               <img
                 key={activeImage.id}
                 src={activeImage.src}
                 alt={activeImage.alt}
-                className="w-full h-full object-contain scale-96 scale-100 rounded-lg"
+                className="rounded-lg h-full object-cover"
               />
             </div>
           </figure>
@@ -188,7 +188,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Features Section */}
-      <section id="product-delta" className="pt-32 bg-white">
+      <section id="product-delta" className="mt-30 bg-white">
         <div className="grid grid-cols-[0.9fr_1fr] gap-12 items-center pr-8">
           <figure
             className="rounded-l-none rounded-r-xl h-full bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pr-6"
@@ -249,7 +249,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Additional Features Section */}
-      <section id="fuse-evaluate" className="pt-32 bg-white">
+      <section id="fuse-evaluate" className="mt-32 bg-white">
         <div className="grid grid-cols-[1fr_0.98fr] gap-12 items-center">
           <article className="pl-30">
             <Heading
@@ -307,7 +307,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Additional Features Section */}
-      <section id="impact-attribution" className="pt-32 bg-white">
+      <section id="impact-trace" className="mt-32 bg-white">
         <div className="grid grid-cols-[0.9fr_1fr] gap-12 items-center pr-30">
           {/* Feature Image */}
           <figure
@@ -364,7 +364,7 @@ export function HeroDesktop() {
       </section>
 
       {/* knowledge graph section */}
-      <section id="fuse-evaluate" className="pt-32 bg-white">
+      <section id="knowledge-graph" className="mt-32 bg-white">
         <div className="grid grid-cols-[1fr_0.98fr] gap-12 items-center">
           <article className="pl-30">
             <Heading
@@ -422,7 +422,7 @@ export function HeroDesktop() {
       </section>
 
       {/* Pricing Section */}
-      <section className="pt-20 bg-white px-30">
+      <section className="mt-62 bg-white px-30">
         <Card
           variant="outlined"
           padding="lg"
@@ -461,15 +461,15 @@ export function HeroDesktop() {
           </CardHeader>
 
           <CardFooter className="pt-6 mt-6 border-t-1">
-            <Button variant="primary" size="lg" fullWidth>
-              Book demo
+            <Button variant="primary" size="lg" fullWidth asChild>
+              <a href="/contact">Book demo</a>
             </Button>
           </CardFooter>
         </Card>
       </section>
 
       {/* FAQ Section */}
-      <section className="pt-20 flex gap-6 px-30">
+      <section className="mt-62 flex gap-6 px-30">
         <div className="flex flex-col gap-6">
           <Heading as="h2" className="text-[48px]" weight="semibold">
             FAQ
@@ -524,15 +524,10 @@ export function HeroDesktop() {
             </Text>
           </CardContent>
 
-          <CardFooter className="pt-5 mt-5 border-t-0">
-            <article className="flex flex-row gap-4 justify-center">
-              <Button variant="secondary" size="md">
-                Get started
+          <CardFooter className="pt-5 mt-5 border-t-0 flex justify-center">
+              <Button variant="secondary" size="md" asChild>
+                <a href="/contact">Book demo</a>
               </Button>
-              <Button variant="primary" size="md">
-                Book a demo
-              </Button>
-            </article>
           </CardFooter>
         </Card>
       </section>
