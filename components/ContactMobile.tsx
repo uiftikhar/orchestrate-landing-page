@@ -55,7 +55,7 @@ export function ContactMobile() {
           <div>
             <Text size="sm" weight="medium" className="mb-2">Your Email</Text>
             <Input
-              placeholder="jane@framer.com"
+              placeholder="jane@orchestrate.management"
               type="email"
               className="w-full mt-[10px]"
               value={formData.email}

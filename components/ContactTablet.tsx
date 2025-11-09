@@ -96,7 +96,7 @@ export function ContactTablet() {
                 <div>
                   <Text size="sm" weight="semibold" className="text-gray-900">Your Email</Text>
                   <Input
-                    placeholder="jane@framer.com"
+                    placeholder="jane@orchestrate.management"
                     type="email"
                     className="w-full mt-[10px]"
                     value={formData.email}
