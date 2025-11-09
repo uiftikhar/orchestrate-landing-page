@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Heading, Text, Button, Card, CardHeader, CardTitle, CardContent, CardFooter, Accordion } from "@/components/ui";
-import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
+import { Check, ListOrdered, CircuitBoard, Share2, BrainCog, Waypoints, CircleCheck, Microscope, Blocks, ChartScatter, ChartArea, Network, ChartNetwork, BrainCircuit, Handshake, ChartNoAxesCombined, ShieldCheck } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 
@@ -158,25 +158,25 @@ export function HeroMobile() {
           </Text>
 
           <li className="flex items-center gap-4 mb-[10px]">
-            <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <ListOrdered size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Ranked by strategic impact × probability of success
             </Text>
           </li>
           <li className="flex items-center gap-4 mb-[10px]">
-            <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <CircuitBoard size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Multi-modal evidence for each proposal (quant + qual + historical)
             </Text>
           </li>
           <li className="flex items-center gap-4 mb-[10px]">
-            <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Share2 size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Export deltas directly into Figma, Cursor, Claude Code, or build your own way
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <BrainCog size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Learns from every shipped change, proposals get smarter over time
             </Text>
@@ -216,25 +216,25 @@ export function HeroMobile() {
         </article>
         <ul className="flex flex-col gap-[10px]">
           <li className="flex items-center gap-4">
-            <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Waypoints size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Triangulate across quantitative, qualitative, and historical signals
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <CircleCheck size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               When signals align, you have confidence to ship
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Microscope size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Real-time confidence scoring as evidence accumulates
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+            <Blocks size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Integrates with Amplitude, Mixpanel, PostHog, Dovetail, and experimentation tools
             </Text>
@@ -272,25 +272,25 @@ export function HeroMobile() {
         </article>
         <ul className="flex flex-col gap-[10px]">
           <li className="flex items-center gap-4">
-            <Calendar size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <ChartScatter size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               Attribution adjusts for seasonality, concurrent work, and time since launch
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <ChartArea size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               Monitor risks, guardrails and tradeoffs as effects accumulate over time
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <Network size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               See what data informed each choice, which alternatives were considered, and why features were shipped or killed
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <ChartNetwork size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
 
@@ -330,25 +330,25 @@ export function HeroMobile() {
         </article>
         <ul className="flex flex-col gap-[10px]">
           <li className="flex items-center gap-4">
-            <Calendar size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <BrainCircuit size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               Automatic context capture: Every decision, alternative, and outcome with full reasoning, not just results
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <Handshake size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               Cross-team intelligence: What growth learns informs retention, what one team discovers helps everyone
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <ChartNoAxesCombined size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               Powers future decisions: Historical patterns feed Delta Proposals and validation confidence
             </Text>
           </li>
           <li className="flex items-center gap-4">
-            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <ShieldCheck size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               Enterprise-grade protection: Self-hosted or managed, your learnings stay under your control
             </Text>

@@ -71,40 +71,36 @@ export async function submitContactForm(
   }
 }
 
-/**
- * Alternative: Use a third-party form service
- * Uncomment and configure if you prefer services like Formspree, Web3Forms, or EmailJS
- * 
- * Example with Web3Forms (free, no API key needed):
- * 
- * export async function submitContactForm(data: ContactFormData): Promise<ContactFormResponse> {
- *   try {
- *     const sanitizedData = {
- *       name: sanitizeInput(data.name),
- *       email: sanitizeInput(data.email),
- *       message: sanitizeInput(data.message),
- *     };
- * 
- *     const response = await fetch("https://api.web3forms.com/submit", {
- *       method: "POST",
- *       headers: { "Content-Type": "application/json" },
- *       body: JSON.stringify({
- *         access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // Get free at web3forms.com
- *         name: sanitizedData.name,
- *         email: sanitizedData.email,
- *         message: sanitizedData.message,
- *         to: "hello@orchestrate.management",
- *       }),
- *     });
- * 
- *     if (!response.ok) throw new Error("Failed to submit");
- *     
- *     return { success: true, message: "Message sent successfully!" };
- *   } catch (error) {
- *     return { success: false, message: "Failed to send. Please try again." };
- *   }
- * }
- */
+
+
+//  export async function submitContactForm(data: ContactFormData): Promise<ContactFormResponse> {
+//    try {
+//      const sanitizedData = {
+//        name: sanitizeInput(data.name),
+//        email: sanitizeInput(data.email),
+//        message: sanitizeInput(data.message),
+//      };
+ 
+//      const response = await fetch("https://api.web3forms.com/submit", {
+//        method: "POST",
+//        headers: { "Content-Type": "application/json" },
+//        body: JSON.stringify({
+//          access_key: process.env.NEXT_PUBLIC_WEB_THREE_FORMS || "",
+//          name: sanitizedData.name,
+//          email: sanitizedData.email,
+//          message: sanitizedData.message,
+//          to: "hello@orchestrate.management",
+//        }),
+//      });
+ 
+//      if (!response.ok) throw new Error("Failed to submit");
+     
+//      return { success: true, message: "Message sent successfully!" };
+//    } catch (error) {
+//      return { success: false, message: "Failed to send. Please try again." };
+//    }
+//  }
+ 
 
 /**
  * Validate contact form data
