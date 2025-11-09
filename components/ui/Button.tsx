@@ -43,14 +43,14 @@ export interface ButtonProps
 
 const variantClasses = {
   primary:
-    "bg-gray-950 text-white hover:bg-gray-800 active:bg-gray-900 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-100",
+    "bg-gray-950 text-white hover:bg-gray-800 active:bg-gray-900",
   secondary:
     "bg-white text-black",
   outline:
-    "border-2 border-gray-300 text-gray-950 hover:bg-gray-50 active:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-900",
+    "border-2 border-gray-300 text-gray-950 hover:bg-gray-50 active:bg-gray-100",
   ghost:
-    "text-gray-950 hover:bg-gray-100 active:bg-gray-200 dark:text-white dark:hover:bg-gray-800",
-  link: "text-gray-950 hover:underline dark:text-white",
+    "text-gray-950 hover:bg-gray-100 active:bg-gray-200",
+  link: "text-gray-950 hover:underline",
 };
 
 const sizeClasses = {

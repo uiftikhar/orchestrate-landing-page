@@ -16,10 +16,10 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const backgroundClasses = {
-  default: "bg-white dark:bg-gray-950",
-  neutral: "bg-gray-50 dark:bg-gray-900",
+  default: "bg-white",
+  neutral: "bg-gray-50",
   dark: "bg-gray-950 text-white",
-  gradient: "bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900",
+  gradient: "bg-gradient-to-b from-white to-gray-50",
 };
 
 const spacingClasses = {
