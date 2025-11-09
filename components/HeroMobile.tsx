@@ -362,7 +362,7 @@ export function HeroMobile() {
         >
           <div className="h-full bg-white rounded-xl flex p-2">
             <img
-              src="/knowledge-graph.svg"
+              src="/knowledge-map.svg"
               alt="Knowledge Graph"
               className="w-full h-auto"
             />

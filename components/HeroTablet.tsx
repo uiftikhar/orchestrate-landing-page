@@ -398,7 +398,7 @@ export function HeroTablet() {
         >
           <div className="h-full bg-white rounded-l-xl pt-4 pl-4 flex">
             <img
-              src="/knowledge-graph.svg"
+              src="/knowledge-map.svg"
               alt="Knowledge Graph"
               className="w-full h-auto origin-top-left scale-95"
             />
