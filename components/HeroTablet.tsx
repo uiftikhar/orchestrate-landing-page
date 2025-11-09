@@ -5,10 +5,6 @@ import { Heading, Text, Button, Card, CardHeader, CardTitle, CardContent, CardFo
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
 import { AnimatedSection } from "./AnimatedSection";
-import { StrategyTree } from "./StrategyTree";
-import { SignalFusionViz } from "./SignalFusionViz";
-import { ImpactAttributionImagery } from "./ImpactAttributionImagery";
-import { KnowledgeGraph } from "./KnowledgeGraph";
 
 // Constants defined outside component to prevent recreation on every render
 const ROTATION_INTERVAL_MS = 10000;
@@ -103,377 +99,394 @@ export function HeroTablet() {
   const activeImage = tabImages.find((image) => image.id === imageTab) ?? tabImages[0];
 
   return (
-    <main className="hidden md:block lg:hidden">
+    <main className="hidden md:block xl:hidden">
       {/* Hero Section */}
       <section className="pt-20">
-        <div className="max-w-3xl mx-auto">
-          <article className="px-8 text-center mb-16">
-            <AnimatedSection delay={getStaggerDelay(0)}>
-              <Heading
-                as="h1"
-                className="text-[56px] leading-[1.1] font-bold mb-8 tracking-tight"
-              >
-                Product<br />
-                execution,<br />
-                augmented
-              </Heading>
-            </AnimatedSection>
-            <AnimatedSection delay={getStaggerDelay(0.5)}>
-              <div className="flex items-end justify-between gap-6">
-                <Text
-                  size="lg"
-                  className="text-gray-600 max-w-[370px] leading-relaxed"
-                >
-                  Orchestrate connects your strategic goals to the product changes that actually move them. It learns from every product change, proves what drives impact, and tells you what to build next
-                </Text>
-                <div className="flex gap-3 whitespace-nowrap">
-                  <Button variant="primary" size="lg" className="px-6 text-sm font-medium">
-                    Book a demo
-                  </Button>
-                </div>
-              </div>
-            </AnimatedSection>
-          </article>
-
-          {/* Tabs */}
-          <div className="mt-20" role="tablist" aria-label="Dashboard views">
-            <AnimatedSection delay={getStaggerDelay(1)}>
-              <div className="flex justify-center gap-12">
-                {tabs.map((tab) => (
-                  <div key={tab.id} className="flex flex-col items-center">
-                    <button
-                      id={`tab-${tab.id}`}
-                      type="button"
-                      role="tab"
-                      onClick={() => handleTabClick(tab.id)}
-                      aria-selected={activeTab === tab.id}
-                      aria-controls={`tabpanel-${tab.id}`}
-                      className={`pb-4 px-1 text-lg font-medium transition-all cursor-pointer focus:outline-none w-[224px] ${activeTab === tab.id
-                        ? "text-gray-900"
-                        : "text-gray-500 hover:text-gray-700"
-                        }`}
-                    >
-                      {tab.label}
-                    </button>
-                    {/* Progress Bar - Only visible for active tab */}
-                    {activeTab === tab.id && (
-                      <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-                        <div
-                          key={progressKey}
-                          className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"
-                        />
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-
-          </div>
-          {/* Dashboard Mockup */}
-          <AnimatedSection delay={getStaggerDelay(1.5)}>
-            <figure
-              className="gradient-background-tabs rounded-2xl p-6"
-              role="tabpanel"
-              id={`tabpanel-${activeTab}`}
-              aria-labelledby={`tab-${activeTab}`}
+        <article className="px-8 text-center">
+          <AnimatedSection delay={getStaggerDelay(0)}>
+            <Heading
+              as="h1"
+              className="text-[48px] leading-[1.1] font-semibold mb-[10px]"
             >
-              <div
-                className={`w-full h-[400px] overflow-hidden rounded-xl border border-white/40 bg-white transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
-                  }`}
-              >
-                <img
-                  src={activeImage.src}
-                  alt={activeImage.alt}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </figure>
+              Product <br /> execution,<br />augmented
+            </Heading>
           </AnimatedSection>
+          <AnimatedSection delay={getStaggerDelay(0.5)}>
+            <div className="flex justify-between">
+              <Text
+                size="lg"
+                className="text-gray-600 max-w-[370px] leading-relaxed"
+              >
+                Orchestrate connects your strategic goals to the product changes that actually move them. It learns from every product change, proves what drives impact, and tells you what to build next
+              </Text>
+              <div className="flex self-end gap-3 whitespace-nowrap">
+                <Button variant="primary" size="lg" className="px-6 text-sm font-medium" asChild>
+                  <a href="/contact">Book demo</a>
+                </Button>
+              </div>
+            </div>
+          </AnimatedSection>
+        </article>
+
+        {/* Tabs */}
+        <div className="mt-40" role="tablist" aria-label="Dashboard views">
+          <AnimatedSection delay={getStaggerDelay(1)}>
+            <div className="flex justify-center gap-12">
+              {tabs.map((tab) => (
+                <div key={tab.id} className="flex flex-col items-center">
+                  <button
+                    id={`tab-${tab.id}`}
+                    type="button"
+                    role="tab"
+                    onClick={() => handleTabClick(tab.id)}
+                    aria-selected={activeTab === tab.id}
+                    aria-controls={`tabpanel-${tab.id}`}
+                    className={`pb-4 px-1 text-lg font-medium transition-all cursor-pointer focus:outline-none w-[224px] ${activeTab === tab.id
+                      ? "text-gray-900"
+                      : "text-gray-500 hover:text-gray-700"
+                      }`}
+                  >
+                    {tab.label}
+                  </button>
+                  {/* Progress Bar - Only visible for active tab */}
+                  {activeTab === tab.id && (
+                    <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        key={progressKey}
+                        className="h-full bg-gradient-to-r from-[#f3e7d9] to-[#e9cbaf] rounded-full animate-progress"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
         </div>
+        {/* Dashboard Mockup */}
+        <AnimatedSection delay={getStaggerDelay(1.5)}>
+          <figure
+            className="bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat p-8"
+            role="tabpanel"
+            id={`tabpanel-${activeTab}`}
+            aria-labelledby={`tab-${activeTab}`}
+          >
+            <div
+              className={`w-full h-full overflow-hidden rounded-xl border border-white/40 bg-white transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
+                }`}
+            >
+              <img
+                src={activeImage.src}
+                alt={activeImage.alt}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </figure>
+        </AnimatedSection>
       </section>
 
       {/* Features Section */}
       <AnimatedSection delay={getStaggerDelay(2)}>
-        <section id="product-delta" className="px-8 pt-20 bg-white">
-          <div className="max-w-3xl mx-auto">
-            <article>
-              <Heading
-                as="h2"
-                className="text-[40px] leading-[1.2] font-bold mb-6"
-              >
-                Your team has 100 ideas. We tell you which matter.
-              </Heading>
-              <Text className="text-gray-600 mb-12 text-lg leading-relaxed" weight="medium">
-                Orchestrate analyzes your strategy, historical data, and current signals to propose ranked product changes, so you only invest in what's most likely to move your metrics.
-              </Text>
+        <section id="product-delta" className="pt-20 bg-white">
+          <article className="px-8">
+            <Heading
+              as="h2"
+              className="text-[40px] leading-[1.1] font-semibold mb-5"
+            >
+              Your team has 100 ideas. We tell you which matter.
+            </Heading>
+            <Text className="text-gray-600 mb-12 text-lg leading-relaxed" weight="medium">
+              Orchestrate analyzes your strategy, historical data, and current signals to propose ranked product changes, so you only invest in what's most likely to move your metrics.
+            </Text>
 
-              <ul className="space-y-[10px] mb-16 mt-10">
-                <li className="flex items-center gap-4">
-                  <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                  <Text size="lg" className="leading-relaxed" weight="medium">
-                    Ranked by strategic impact × probability of success
-                  </Text>
-                </li>
-                <li className="flex items-center gap-4">
-                  <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                  <Text size="lg" className="leading-relaxed" weight="medium">
-                    Multi-modal evidence for each proposal (quant + qual + historical)
-                  </Text>
-                </li>
-                <li className="flex items-center gap-4">
-                  <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                  <Text size="lg" className="leading-relaxed" weight="medium">
-                    Export deltas directly into Figma, Cursor, Claude Code, or build your own way
-                  </Text>
-                </li>
-                <li className="flex items-center gap-4">
-                  <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                  <Text size="lg" className="leading-relaxed" weight="medium">
-                    Learns from every shipped change, proposals get smarter over time
-                  </Text>
-                </li>
-              </ul>
+            <ul className="space-y-[10px] mb-20 mt-10">
+              <li className="flex items-center gap-4">
+                <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Ranked by strategic impact × probability of success
+                </Text>
+              </li>
+              <li className="flex items-center gap-4">
+                <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Multi-modal evidence for each proposal (quant + qual + historical)
+                </Text>
+              </li>
+              <li className="flex items-center gap-4">
+                <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Export deltas directly into Figma, Cursor, Claude Code, or build your own way
+                </Text>
+              </li>
+              <li className="flex items-center gap-4">
+                <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+                <Text size="lg" className="leading-relaxed" weight="medium">
+                  Learns from every shipped change, proposals get smarter over time
+                </Text>
+              </li>
+            </ul>
 
-              {/* Dashboard Table Image */}
-              <figure
-                className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] -translate-x-[254px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
-              >
-                <div className="rounded-lg h-full flex items-center justify-center">
-                  <StrategyTree />
-                </div>
-              </figure>
-            </article>
-          </div>
+          </article>
+          {/* Dashboard Table Image */}
+          <figure
+            className="-translate-x-[3%] rounded-r-xl h-full bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pr-6"
+          >
+            <div className="h-full bg-white rounded-r-xl flex">
+              <img
+                src="/strategy-tree.svg"
+                alt="Strategy Tree"
+                className="w-full h-auto scale-96 "
+              />
+            </div>
+          </figure>
         </section>
       </AnimatedSection>
 
       {/* Additional Features Section */}
-      <section id="fuse-evaluate" className="px-8 pt-20 bg-white overflow-x-hidden">
-        <div className="max-w-3xl mx-auto">
-          <article>
-            <Heading
-              as="h2"
-              className="text-[40px] leading-[1.2] font-bold mb-6"
-            >
-              Confidence without waiting for stat sig.
-            </Heading>
-            <Text className="text-gray-600 mb-12 text-lg leading-relaxed" weight="medium">
-              Fuse validates changes by synthesizing early metrics, user feedback, and historical patterns, giving you the rigor of A/B testing with a fraction of the time and sample size.
+      <section id="fuse-evaluate" className="pt-20 bg-white">
+        <article className="px-8">
+          <Heading
+            as="h2"
+            className="text-[40px] leading-[1.2] font-semibold mb-5"
+          >
+            Confidence without waiting for stat sig.
+          </Heading>
+          <Text className="text-gray-600 mb-10 text-lg leading-relaxed" weight="medium">
+            Fuse validates changes by synthesizing early metrics, user feedback, and historical patterns, giving you the rigor of A/B testing with a fraction of the time and sample size.
 
-            </Text>
+          </Text>
 
-            <ul className="space-y-[10px] mb-16 mt-10">
-              <li className="flex items-center gap-4">
-                <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Triangulate across quantitative, qualitative, and historical signals
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  When signals align, you have confidence to ship
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Real-time confidence scoring as evidence accumulates
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Integrates with Amplitude, Mixpanel, PostHog, Dovetail, and experimentation tools
-                </Text>
-              </li>
-            </ul>
+          <ul className="space-y-[10px] mb-20 mt-10">
+            <li className="flex items-center gap-4">
+              <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Triangulate across quantitative, qualitative, and historical signals
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                When signals align, you have confidence to ship
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Real-time confidence scoring as evidence accumulates
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Integrates with Amplitude, Mixpanel, PostHog, Dovetail, and experimentation tools
+              </Text>
+            </li>
+          </ul>
 
-            {/* Feature Image */}
-            <figure
-              className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
-            >
-              <div className="rounded-lg h-full flex items-center justify-center">
-                <SignalFusionViz />
-              </div>
-            </figure>
-          </article>
-        </div>
+        </article>
+        <figure
+          className="h-full rounded-l-xl bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pl-6 translate-x-[3%]"
+        >
+          <div className="h-full bg-white rounded-l-xl pt-4 pl-4 flex">
+            <img
+              src="/signal-fusion.svg"
+              alt="fusion of various signals"
+              className="w-full h-auto origin-top-left"
+            />
+          </div>
+        </figure>
       </section>
 
       {/* Additional Features Section */}
-      <section id="impact-trace" className="px-8 pt-20 bg-white overflow-x-hidden">
-        <div className="max-w-3xl mx-auto">
-          <article>
-            <Heading
-              as="h2"
-              className="text-[40px] leading-[1.2] font-bold mb-6"
-            >
-              Attribution that accounts for the real world.
+      <section id="impact-trace" className="pt-20 bg-white overflow-x-hidden">
+        <article className="px-8">
+          <Heading
+            as="h2"
+            className="text-[40px] leading-[1.2] font-semibold mb-5"
+          >
+            Attribution that accounts for the real world.
+          </Heading>
+          <Text className="text-gray-600 mb-12 text-lg leading-relaxed" weight="medium">
+            Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
+          </Text>
 
-            </Heading>
-            <Text className="text-gray-600 mb-12 text-lg leading-relaxed" weight="medium">
-              Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
-            </Text>
+          <ul className="space-y-[10px] mb-20 mt-10">
+            <li className="flex items-center gap-4">
+              <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Attribution adjusts for seasonality, concurrent work, and time since launch
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Monitor risks, guardrails and tradeoffs as effects accumulate over time
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                See what data informed each choice, which alternatives were considered, and why features were shipped or killed
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
+              </Text>
+            </li>
+          </ul>
 
-            <ul className="space-y-[10px] mb-16 mt-10">
-              <li className="flex items-center gap-4">
-                <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Attribution adjusts for seasonality, concurrent work, and time since launch
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  Monitor risks, guardrails and tradeoffs as effects accumulate over time
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  See what data informed each choice, which alternatives were considered, and why features were shipped or killed
-                </Text>
-              </li>
-              <li className="flex items-center gap-4">
-                <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
-                <Text size="lg" className="leading-relaxed" weight="medium">
-                  See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
-                </Text>
-              </li>
-            </ul>
-
-            {/* Feature Image */}
-            <figure
-              className="rounded-xl p-1 relative overflow-hidden w-[1005px] h-[594px] -translate-x-[254px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat"
-            >
-              <div className="rounded-lg h-full flex items-center justify-center">
-                <ImpactAttributionImagery />
-              </div>
-            </figure>
-          </article>
-        </div>
+        </article>
+        {/* Feature Image */}
+        <figure
+          className="-translate-x-[3%] rounded-r-xl h-full bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pr-6"
+        >
+          <div className="h-full bg-white rounded-r-xl flex">
+            <img
+              src="/impact-attribution.svg"
+              alt="Impact Attribution"
+              className="w-full h-auto scale-95 translate-x-[1%]"
+            />
+          </div>
+        </figure>
       </section>
 
       {/* Features with Orange Icons */}
-      <section id="knowledge-graph" className="px-8 pt-20">
-        <div className="max-w-3xl mx-auto">
-          <article className="mb-12 max-w-[600px]">
-            <Heading as="h2" className="text-[40px] leading-[1.2] mb-6" weight="semibold">
-              Institutional memory that compounds over time. 
-            </Heading>
-            <Text className="text-gray-600 text-lg leading-relaxed max-w-xl">
-              Knowledge Graph captures the full context of every product decision, what worked, what failed, for whom, and why, creating a compound learning system that makes your organization smarter over time.
+      <section id="knowledge-graph" className="pt-20 bg-white">
+        <article className="px-8">
+          <Heading as="h2" className="text-[40px] leading-[1.2] font-semibold mb-5">
+            Institutional memory that compounds over time.
+          </Heading>
+          <Text className="text-gray-600 mb-10 text-lg leading-relaxed" weight="medium">
+            Knowledge Graph captures the full context of every product decision, what worked, what failed, for whom, and why, creating a compound learning system that makes your organization smarter over time.
+          </Text>
 
+
+          <ul className="space-y-[10px] mb-20 mt-10">
+            <li className="flex items-center gap-4">
+              <Calendar size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Automatic context capture: Every decision, alternative, and outcome with full reasoning, not just results
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Cross-team intelligence: What growth learns informs retention, what one team discovers helps everyone
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Powers future decisions: Historical patterns feed Delta Proposals and validation confidence
+              </Text>
+            </li>
+            <li className="flex items-center gap-4">
+              <LayoutTemplate size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
+              <Text size="lg" className="leading-relaxed" weight="medium">
+                Enterprise-grade protection: Self-hosted or managed, your learnings stay under your control
+              </Text>
+            </li>
+          </ul>
+        </article>
+
+        {/* 	746 × 420 px */}
+        {/* Feature Image */}
+        <figure
+          className="h-full rounded-l-xl bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat pt-6 pb-6 pl-6 translate-x-[3%]"
+        >
+          <div className="h-full bg-white rounded-l-xl pt-4 pl-4 flex">
+            <img
+              src="/knowledge-map.svg"
+              alt="Knowledge Graph"
+              className="w-full h-auto origin-top-left scale-95"
+            />
+          </div>
+        </figure>
+
+        <div className="flex gap-6 mt-6">
+          <article className="flex flex-col gap-3 pb-8 p-10">
+            <GitMerge size={24} color="#FF8C00" aria-hidden="true" />
+            <Heading as="h3" className="text-xl font-semibold">
+              Effortless organization
+            </Heading>
+            <Text variant="secondary" size="base" className="leading-relaxed">
+              Centralize all customer data for easy access and better management.
             </Text>
           </article>
 
-          {/* 	746 × 420 px */}
-          {/* Feature Image */}
-          <figure
-            className="rounded-xl p-4 relative overflow-hidden bg-[url(/gradient-yellow-purple-background.png)] bg-cover bg-center bg-no-repeat"
-            style={{ width: '746px', height: '420px' }}
-          >
-            <div className="w-full h-full">
-              <KnowledgeGraph />
-            </div>
-          </figure>
+          <article className="flex flex-col gap-3 pb-8 p-10">
+            <Flame size={24} color="#FF8C00" aria-hidden="true" />
+            <Heading as="h3" className="text-xl font-semibold">
+              Boosted productivity
+            </Heading>
+            <Text variant="secondary" size="base" className="leading-relaxed">
+              Automate tasks to save time and focus on what truly matters.
+            </Text>
+          </article>
 
-          <div className="flex gap-6 mt-6">
-            <article className="flex flex-col gap-3 pb-8 p-10">
-              <GitMerge size={24} color="#FF8C00" aria-hidden="true" />
-              <Heading as="h3" className="text-xl font-semibold">
-                Effortless organization
-              </Heading>
-              <Text variant="secondary" size="base" className="leading-relaxed">
-                Centralize all customer data for easy access and better management.
-              </Text>
-            </article>
-
-            <article className="flex flex-col gap-3 pb-8 p-10">
-              <Flame size={24} color="#FF8C00" aria-hidden="true" />
-              <Heading as="h3" className="text-xl font-semibold">
-                Boosted productivity
-              </Heading>
-              <Text variant="secondary" size="base" className="leading-relaxed">
-                Automate tasks to save time and focus on what truly matters.
-              </Text>
-            </article>
-
-            <article className="flex flex-col gap-3 p-10">
-              <LineChart size={24} color="#FF8C00" aria-hidden="true" />
-              <Heading as="h3" className="text-xl font-semibold">
-                Data-driven growth
-              </Heading>
-              <Text variant="secondary" size="base" className="leading-relaxed">
-                Leverage real-time analytics to make smarter, faster business decisions.
-              </Text>
-            </article>
-          </div>
+          <article className="flex flex-col gap-3 p-10">
+            <LineChart size={24} color="#FF8C00" aria-hidden="true" />
+            <Heading as="h3" className="text-xl font-semibold">
+              Data-driven growth
+            </Heading>
+            <Text variant="secondary" size="base" className="leading-relaxed">
+              Leverage real-time analytics to make smarter, faster business decisions.
+            </Text>
+          </article>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section className="px-8 pt-20 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <article className="mb-12">
-            <Heading as="h2" className="text-[40px] leading-[1.2] font-bold mb-6">
-              Simple, transparent pricing plans for every team
-            </Heading>
-            <Text className="text-gray-600 text-lg leading-relaxed max-w-xl">
-              Choose a plan that fits your business needs and start delivering better customer experiences today.
-            </Text>
-          </article>
+      <section className="px-8 mt-40 bg-white">
+        <Card
+          variant="outlined"
+          padding="lg"
+          className="rounded-3xl border border-gray-200 bg-pricing-gradient"
+        >
+          <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
+            <div className="flex-1">
+              <Heading as="h3" weight="bold" className="text-3xl mb-8">
+                Custom Pricing
+              </Heading>
 
-          <Card
-            variant="outlined"
-            padding="lg"
-            className="rounded-3xl border border-gray-200 bg-pricing-gradient"
-          >
-            <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
-              <div className="flex-1">
-                <Heading as="h3" weight="bold" className="text-3xl mb-8">
-                  Custom Pricing
-                </Heading>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
+                </li>
+              </ul>
+            </div>
+            <div className="px-4 py-2 rounded-full text-sm font-medium bg-badge-light">
+              <span className="text-gradient-purple-orange">
+                Design Partnership
+              </span>
+            </div>
+          </CardHeader>
 
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="px-4 py-2 rounded-full text-sm font-medium bg-badge-light">
-                <span className="text-gradient-purple-orange">
-                  Design Partnership
-                </span>
-              </div>
-            </CardHeader>
-
-            <CardFooter className="pt-6 mt-6 border-t-1">
-              <Button variant="primary" size="lg" fullWidth>
-                Book demo
-              </Button>
-            </CardFooter>
-          </Card>
-        </div>
+          <CardFooter className="pt-6 mt-6 border-t-1">
+            <Button variant="primary" size="lg" fullWidth asChild>
+              <a href="/contact">Book demo</a>
+            </Button>
+          </CardFooter>
+        </Card>
       </section>
 
       {/* FAQ Section */}
-      <section className="px-8 pt-20 flex gap-6">
+      <section className="px-8 mt-40 flex gap-6">
         <div className="flex flex-col gap-6">
           <Heading as="h2" className="text-[40px]" weight="semibold">
             FAQ
@@ -510,7 +523,7 @@ export function HeroTablet() {
         />
       </section>
 
-      <section className="px-8 py-20">
+      <section className="px-8 my-40">
         <Card
           variant="outlined"
           className="rounded-3xl bg-[url(/gradient-black-green-background.png)] bg-cover bg-center bg-no-repeat py-20 px-14"
@@ -530,11 +543,8 @@ export function HeroTablet() {
 
           <CardFooter className="pt-5 mt-5 border-t-0">
             <article className="flex flex-row gap-4 justify-center">
-              <Button variant="secondary" size="md">
-                Get started
-              </Button>
-              <Button variant="primary" size="md">
-                Book a demo
+              <Button variant="secondary" size="md" asChild>
+                <a href="/contact">Book demo</a>
               </Button>
             </article>
           </CardFooter>

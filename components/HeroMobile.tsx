@@ -5,10 +5,6 @@ import { Heading, Text, Button, Card, CardHeader, CardTitle, CardContent, CardFo
 import { Database, UserSearch, LayoutList, Calendar, CircleQuestionMark, MessageSquareDot, LayoutTemplate, GitMerge, Flame, LineChart, Check } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { getStaggerDelay } from "@/hooks/useStaggerAnimation";
-import { StrategyTree } from "./StrategyTree";
-import { SignalFusionViz } from "./SignalFusionViz";
-import { ImpactAttributionImagery } from "./ImpactAttributionImagery";
-import { KnowledgeGraph } from "./KnowledgeGraph";
 
 // Constants defined outside component to prevent recreation on every render
 const ROTATION_INTERVAL_MS = 10000;
@@ -82,13 +78,13 @@ export function HeroMobile() {
   const activeImage = tabImages.find((image) => image.id === imageTab) ?? tabImages[0];
 
   return (
-    <main className="block md:hidden space-y-8 py-14">
+    <main className="block md:hidden space-y-8 mt-15">
       <section className="flex flex-col gap-8 mb-15 px-5">
         <article className="flex flex-col gap-5">
           <AnimatedSection delay={getStaggerDelay(0)}>
             <Heading
               as="h1"
-              className="text-[40px] leading-[1.1] font-bold tracking-tight"
+              className="text-[36px] leading-[1.1] font-semibold tracking-tight"
             >
               Product execution, augmented
             </Heading>
@@ -105,8 +101,8 @@ export function HeroMobile() {
           </AnimatedSection>
         </article>
         <AnimatedSection delay={getStaggerDelay(1)} as="article" className="flex flex-row gap-3">
-          <Button variant="primary" size="lg" fullWidth>
-            Book a demo
+          <Button variant="primary" size="md" fullWidth asChild>
+            <a href="/contact">Book demo</a>
           </Button>
         </AnimatedSection>
       </section>
@@ -114,30 +110,29 @@ export function HeroMobile() {
       <AnimatedSection
         delay={getStaggerDelay(1.5)}
         as="section"
-        className="flex flex-col gap-5 w-full mb-15 px-5"
+        className="flex flex-col w-full mb-15"
       >
-        <Heading as="h6" align="center" className="text-[18px]">
+        <Heading as="h6" align="center" className="text-[18px] font-medium mb-5">
           {tabs[activeTab].label}
         </Heading>
-        
+
         {/* Progress Bar */}
-        <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden px-5">
+        <div className="h-1 rounded-full overflow-hidden mx-3">
           <div
             key={progressKey}
-            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"
+            className="h-full mx-5 bg-gradient-to-r from-[#f3e7d9] to-[#e9cbaf] rounded-full animate-progress "
           />
         </div>
 
         <figure
-          className="gradient-background-tabs rounded-2xl p-4 w-full overflow-hidden"
+          className="bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center p-4 w-full"
           role="tabpanel"
           id={`hero-mobile-tabpanel-${activeTab}`}
           aria-labelledby={`hero-mobile-heading`}
         >
           <div
-            className={`w-full h-[236px] transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${
-              isImageVisible ? "opacity-100" : "opacity-0"
-            }`}
+            className={`w-full h-[236px] transition-opacity duration-[400ms] ease-[cubic-bezier(0.44,0,0.56,1)] ${isImageVisible ? "opacity-100" : "opacity-0"
+              }`}
           >
             <img
               src={activeImage.src}
@@ -148,33 +143,33 @@ export function HeroMobile() {
         </figure>
       </AnimatedSection>
 
-      <section id="product-delta" className="px-5 flex flex-col gap-10">
+      <section id="product-delta" className="px-5 flex flex-col gap-10 mb-15">
         <AnimatedSection delay={getStaggerDelay(2)}>
-          <Heading as="h3" weight="semibold" className="tracking-normal">
+          <Heading as="h3" weight="semibold" className="tracking-normal mb-5">
             Your team has 100 ideas. We tell you which matter.
           </Heading>
           <Text
             size="base"
-            weight="semibold"
+            weight="medium"
             variant="secondary"
-            className="leading-relaxed max-w-md"
+            className="leading-relaxed max-w-md pb-10"
           >
             Orchestrate analyzes your strategy, historical data, and current signals to propose ranked product changes, so you only invest in what's most likely to move your metrics.
           </Text>
 
-          <li className="flex items-center gap-4">
+          <li className="flex items-center gap-4 mb-[10px]">
             <Database size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Ranked by strategic impact × probability of success
             </Text>
           </li>
-          <li className="flex items-center gap-4">
+          <li className="flex items-center gap-4 mb-[10px]">
             <UserSearch size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Multi-modal evidence for each proposal (quant + qual + historical)
             </Text>
           </li>
-          <li className="flex items-center gap-4">
+          <li className="flex items-center gap-4 mb-[10px]">
             <LayoutList size={24} color="#4778F5" className="flex-shrink-0" aria-hidden="true" />
             <Text size="base" className="leading-relaxed" weight="medium">
               Export deltas directly into Figma, Cursor, Claude Code, or build your own way
@@ -189,21 +184,22 @@ export function HeroMobile() {
         </AnimatedSection>
       </section>
 
-      <section className="px-5 mb-10">
-        <div 
-          className="flex items-center justify-center"
-          style={{ 
-            height: '185px', // 530px * 0.35 = 185.5px
-            overflow: 'hidden'
-          }}
+      <section className="px-5 mb-15">
+        <figure
+          className="rounded-xl h-[210px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat p-3"
         >
-          <div style={{ transform: 'scale(0.35)', transformOrigin: 'center center' }}>
-            <StrategyTree />
+          <div className="h-full bg-white rounded-xl flex p-2">
+            <img
+              src="/strategy-tree.svg"
+              alt="Strategy Tree"
+              className="w-full h-auto"
+            />
           </div>
-        </div>
+
+        </figure>
       </section>
 
-      <section id="fuse-evaluate" className="flex flex-col px-5 gap-10">
+      <section id="fuse-evaluate" className="flex flex-col px-5 gap-10 mb-15">
         <article className="flex flex-col gap-5">
           <Heading as="h3" weight="semibold" className="tracking-normal">
             Confidence without waiting for stat sig.
@@ -246,24 +242,24 @@ export function HeroMobile() {
         </ul>
       </section>
 
-      <section className="px-5 mb-10">
-        <div 
-          className="flex items-center justify-center"
-          style={{ 
-            height: '185px', // 530px * 0.35 = 185.5px
-            overflow: 'hidden'
-          }}
+      <section className="px-5 mb-15">
+        <figure
+          className="rounded-xl h-[210px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat p-3"
         >
-          <div style={{ transform: 'scale(0.35)', transformOrigin: 'center center' }}>
-            <SignalFusionViz />
+          <div className="h-full bg-white rounded-xl flex p-2">
+            <img
+              src="/signal-fusion.svg"
+              alt="fusion of various signals"
+              className="w-full h-auto"
+            />
           </div>
-        </div>
+        </figure>
       </section>
 
-      <section id="impact-trace" className="flex flex-col px-5 gap-10">
+      <section id="impact-trace" className="flex flex-col px-5 gap-10 mb-15">
         <article className="flex flex-col gap-5">
           <Heading as="h3" weight="semibold" className="tracking-normal">
-          Attribution that accounts for the real world.
+            Attribution that accounts for the real world.
           </Heading>
           <Text
             size="base"
@@ -271,82 +267,110 @@ export function HeroMobile() {
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
-Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
-</Text>
+            Impact Trace isolates the impact of each product change while adjusting for seasonality, concurrent launches, and time-based effects, giving you confident impact attribution, not just correlation.
+          </Text>
         </article>
-        <article className="flex flex-col gap-[10px]">
-          <div className="flex items-center gap-4">
+        <ul className="flex flex-col gap-[10px]">
+          <li className="flex items-center gap-4">
             <Calendar size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               Attribution adjusts for seasonality, concurrent work, and time since launch
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
+          </li>
+          <li className="flex items-center gap-4">
             <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
-              Monitor risks, guardrails and tradeoffs as effects accumulate over time 
+              Monitor risks, guardrails and tradeoffs as effects accumulate over time
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
+          </li>
+          <li className="flex items-center gap-4">
             <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
               See what data informed each choice, which alternatives were considered, and why features were shipped or killed
             </Text>
-          </div>
-          <div className="flex items-center gap-4">
+          </li>
+          <li className="flex items-center gap-4">
             <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
             <Text size="base" className="leading-relaxed" weight="medium" >
-            See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
+              See how changes performed across audiences, over time and the connection from product changes to goals and strategic outcomes
 
             </Text>
+          </li>
+        </ul>
+      </section>
+
+      <section className="px-5 mb-15">
+        <figure
+          className="rounded-xl h-[210px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat p-3"
+        >
+          <div className="h-full bg-white rounded-xl flex p-2">
+            <img
+              src="/impact-attribution.svg"
+              alt="Impact Attribution"
+              className="w-full h-auto"
+            />
           </div>
+        </figure>
+      </section>
+
+      {/* check gap! */}
+      <section id="knowledge-graph" className="flex flex-col gap-10 mb-15 px-5">
+        <article className="flex flex-col gap-5">
+          <Heading as="h3" weight="semibold" className="tracking-normal">
+            Institutional memory that compounds over time.
+          </Heading>
+          <Text
+            size="base"
+            weight="semibold"
+            variant="secondary"
+            className="leading-relaxed max-w-md"
+          >
+            Knowledge Graph captures the full context of every product decision, what worked, what failed, for whom, and why, creating a compound learning system that makes your organization smarter over time.
+          </Text>
         </article>
+        <ul className="flex flex-col gap-[10px]">
+          <li className="flex items-center gap-4">
+            <Calendar size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <Text size="base" className="leading-relaxed" weight="medium" >
+              Automatic context capture: Every decision, alternative, and outcome with full reasoning, not just results
+            </Text>
+          </li>
+          <li className="flex items-center gap-4">
+            <CircleQuestionMark size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <Text size="base" className="leading-relaxed" weight="medium" >
+              Cross-team intelligence: What growth learns informs retention, what one team discovers helps everyone
+            </Text>
+          </li>
+          <li className="flex items-center gap-4">
+            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <Text size="base" className="leading-relaxed" weight="medium" >
+              Powers future decisions: Historical patterns feed Delta Proposals and validation confidence
+            </Text>
+          </li>
+          <li className="flex items-center gap-4">
+            <MessageSquareDot size={24} color="#4778F5" className="flex-shrink-0 mt-0.5" />
+            <Text size="base" className="leading-relaxed" weight="medium" >
+              Enterprise-grade protection: Self-hosted or managed, your learnings stay under your control
+            </Text>
+          </li>
+        </ul>
       </section>
 
-      <section className="px-5 mb-10">
-        <div 
-          className="flex items-center justify-center"
-          style={{ 
-            height: '185px', // 530px * 0.35 = 185.5px
-            overflow: 'hidden'
-          }}
+      <section className="px-5 mb-15">
+        <figure
+          className="rounded-xl h-[210px] bg-[url(/gradient-blue-yellow-backgrop.png)] bg-cover bg-center bg-no-repeat p-3"
         >
-          <div style={{ transform: 'scale(0.35)', transformOrigin: 'center center' }}>
-            <ImpactAttributionImagery />
+          <div className="h-full bg-white rounded-xl flex p-2">
+            <img
+              src="/knowledge-map.svg"
+              alt="Knowledge Graph"
+              className="w-full h-auto"
+            />
           </div>
-        </div>
+        </figure>
       </section>
 
-      <section id="knowledge-graph" className="flex flex-col gap-8 mb-15 px-5">
-        <Heading
-          as="h1"
-          className="text-[40px] leading-[1.1] font-bold tracking-tight"
-        >
-          Institutional memory that compounds over time. 
-        </Heading>
-        <Text
-          size="base"
-          weight="semibold"
-          variant="secondary"
-          className="leading-relaxed max-w-md"
-        >
-          Knowledge Graph captures the full context of every product decision, what worked, what failed, for whom, and why, creating a compound learning system that makes your organization smarter over time.
-        </Text>
-      </section>
-
-      <section className="px-5 mb-10">
-        <div 
-          className="w-full rounded-lg overflow-hidden"
-          style={{
-            height: '250px',
-            backgroundColor: '#020617'
-          }}
-        >
-          <KnowledgeGraph />
-        </div>
-      </section>
-
-      <section className="px-5 flex flex-col">
+      <section className="px-5 flex flex-col mb-15">
         <article className="flex flex-col gap-3 pb-6">
           <div className="flex items-center gap-3">
             <GitMerge size={24} color="#FF8C00" className="flex-shrink-0" />
@@ -388,71 +412,53 @@ Impact Trace isolates the impact of each product change while adjusting for seas
         </article>
       </section>
 
-      <section className="flex flex-col gap-8 mb-15 px-5">
-        <Heading
-          as="h1"
-          className="text-[40px] leading-[1.1] font-bold tracking-tight"
-        >
-          Simple, transparent pricing plans for every team
-        </Heading>
-        <Text
-          size="base"
-          weight="normal"
-          variant="secondary"
-          className="leading-relaxed max-w-md"
-        >
-          Choose a plan that fits your business needs and
-          start delivering better customer experiences today.
-        </Text>
-      </section>
-
-      <section className="px-5">
+      <section className="px-5 mb-15">
         <Card
           variant="outlined"
-          padding="lg"
-          className="rounded-3xl border border-gray-200 bg-pricing-gradient"
+          className="rounded-3xl border border-gray-200 bg-pricing-gradient p-5"
         >
-        <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
-          <div className="flex-1">
-            <Heading as="h3" weight="bold" className="text-2xl mb-6">
-              Custom Pricing
-            </Heading>
+          <CardHeader className="flex flex-col items-start  gap-4 mb-6">
+            <div className="flex-1 flex justify-between w-full mb-6">
+              <Heading as="h3" className="text-[24px] font-semibold">
+                Custom Pricing
+              </Heading>
+
+              <div className="flex items-center px-3 py-1 rounded-full text-xs font-medium bg-badge-light">
+                <span className="text-gradient-purple-orange">
+                  Design Partnership
+                </span>
+              </div>
+            </div>
 
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
-              </li>
-            </ul>
-          </div>
-            <div className="px-3 py-1 rounded-full text-xs font-medium bg-badge-light">
-              <span className="text-gradient-purple-orange">
-                Design Partnership
-              </span>
-            </div>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Strategy-to-Metrics setup (OKR ingestion, metrics tree)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Native integrations (Amplitude/Mixpanel, Optimizely/PostHog, Figma/Linear/GitHub)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Executive attribution dashboard + learning bank</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-base font-normal text-primary text-left">Dedicated product partner (weekly working session, clear SLAs)</span>
+                </li>
+              </ul>
           </CardHeader>
 
           <CardFooter className="pt-6 mt-6 border-t-1">
-            <Button variant="primary" size="lg" fullWidth>
-              Book demo
+            <Button variant="primary" size="lg" fullWidth asChild>
+              <a href="/contact">Book demo</a>
             </Button>
           </CardFooter>
         </Card>
       </section>
 
-      <section className="px-5 mt-15 flex flex-col gap-6">
+      <section className="px-5 flex flex-col gap-6 mb-15">
         <Heading as="h2" className="text-3xl ">
           FAQ
         </Heading>
@@ -487,14 +493,13 @@ Impact Trace isolates the impact of each product change while adjusting for seas
         />
       </section>
 
-      <section className="px-5">
+      <section className="px-5 mb-15">
         <Card
           variant="outlined"
-          padding="lg"
-          className="rounded-3xl bg-[url(/gradient-black-green-background.png)] bg-cover bg-center bg-no-repeat"
+          className="rounded-3xl bg-[url(/gradient-black-green-background.png)] bg-cover bg-center bg-no-repeat p-5"
         >
-          <CardHeader className="flex flex-row items-start justify-between gap-4 mb-6">
-            <CardTitle className="text-[36px] font-bold mb-1 text-white text-center">
+          <CardHeader className="mb-8">
+            <CardTitle className="text-[36px] font-bold text-white text-center">
               Stop guessing, Start executing
             </CardTitle>
           </CardHeader>
@@ -506,15 +511,10 @@ Impact Trace isolates the impact of each product change while adjusting for seas
             </Text>
           </CardContent>
 
-          <CardFooter className="pt-6 mt-6 border-t-0">
-            <article className="flex flex-row gap-4">
-              <Button variant="secondary" size="md" fullWidth>
-                Get started
-              </Button>
-              <Button variant="primary" size="md" fullWidth>
-                Book a demo
-              </Button>
-            </article>
+          <CardFooter className="mt-12 mb-2 p-0 border-t-0">
+            <Button variant="secondary" size="md" fullWidth asChild>
+              <a href="/contact">Book demo</a>
+            </Button>
           </CardFooter>
         </Card>
       </section>

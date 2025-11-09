@@ -9,7 +9,7 @@ export function ContactTablet() {
   const { formData, errors, isSubmitting, submitStatus, handleChange, handleSubmit } = useContactForm();
 
   return (
-    <main className="hidden md:block lg:hidden">
+    <main className="hidden md:block xl:hidden">
       <section className="px-8 py-20 bg-gray-50">
         <div className="max-w-3xl mx-auto">
           <article className="text-center mb-16">
