@@ -40,14 +40,9 @@ export function ContactDesktop() {
               {/* Address Card */}
               <Card padding="md" className="bg-gray-100 border-none flex-1">
                 <CardContent className="h-full flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <Heading as="h6" weight="semibold" className="text-base">
-                      Address
-                    </Heading>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-gray-400">
-                      <path d="M4 8H12M8 4V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                  </div>
+                  <Heading as="h6" weight="semibold" className="text-base">
+                    Address
+                  </Heading>
                   <Text variant="secondary" size="sm" className="leading-relaxed">
                     32-38 Leman St, London E1 8EW
                   </Text>
@@ -57,14 +52,10 @@ export function ContactDesktop() {
               {/* Get in touch Card */}
               <Card padding="md" className="bg-gray-100 border-none flex-1">
                 <CardContent className="h-full flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <Heading as="h6" weight="semibold" className="text-base">
-                      Get in touch
-                    </Heading>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-gray-400">
-                      <path d="M4 8H12M8 4V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                  </div>
+                  <Heading as="h6" weight="semibold" className="text-base">
+                    Get in touch
+                  </Heading>
+
                   <div className="space-y-2">
                     <Text variant="secondary" size="sm" className="leading-relaxed">
                       hello@orchestrate.management

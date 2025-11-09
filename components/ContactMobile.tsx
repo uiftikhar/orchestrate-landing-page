@@ -125,9 +125,6 @@ export function ContactMobile() {
               <Heading as="h6" weight="semibold" className="text-lg">
                 Get in touch
               </Heading>
-              {/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-gray-400">
-                <path d="M4 8H12M8 4V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg> */}
             </div>
             <Text variant="secondary" size="base" weight="medium" className="leading-relaxed pb-2">
               hello@orchestrate.management
