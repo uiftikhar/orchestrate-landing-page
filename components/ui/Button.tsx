@@ -54,10 +54,10 @@ const variantClasses = {
 };
 
 const sizeClasses = {
-  sm: "px-3 py-1.5 text-sm",
-  md: "px-4 py-2 text-base",
-  lg: "px-6 py-3 text-lg",
-  xl: "px-8 py-4 text-xl",
+  sm: "px-3 py-1.5 text-xs",
+  md: "px-4 py-2 text-sm",
+  lg: "px-6 py-3 text-sm",
+  xl: "px-8 py-4 text-base",
 };
 
 // Explicit text colors for asChild links to override default anchor styles
@@ -89,7 +89,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const classes = cn(
-      "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-full",
+      "inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-full",
+      "[font-feature-settings:normal] [font-variation-settings:normal] [-webkit-font-smoothing:antialiased]",
       variantClasses[variant],
       sizeClasses[size],
       fullWidth && "w-full",
