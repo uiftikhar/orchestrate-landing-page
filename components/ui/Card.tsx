@@ -21,10 +21,10 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const variantClasses = {
-  default: "bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800",
-  outlined: "bg-transparent border-2 border-gray-300 dark:border-gray-700",
-  elevated: "bg-white dark:bg-gray-900 shadow-lg",
-  ghost: "bg-gray-50 dark:bg-gray-800/50",
+  default: "bg-white border border-gray-200",
+  outlined: "bg-transparent border-2 border-gray-300",
+  elevated: "bg-white shadow-lg",
+  ghost: "bg-gray-50",
 };
 
 const paddingClasses = {
@@ -92,7 +92,7 @@ export const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
     return (
       <h3
         ref={ref}
-        className={cn("text-2xl font-bold text-gray-950 dark:text-white", className)}
+        className={cn("text-2xl font-bold text-gray-950", className)}
         {...props}
       >
         {children}
@@ -115,7 +115,7 @@ export const CardDescription = React.forwardRef<
   return (
     <p
       ref={ref}
-      className={cn("text-base text-gray-600 dark:text-gray-400", className)}
+      className={cn("text-base text-gray-600", className)}
       {...props}
     >
       {children}
@@ -148,7 +148,7 @@ export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 export const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("mt-4 pt-4 border-t border-gray-200 dark:border-gray-800", className)} {...props}>
+      <div ref={ref} className={cn("mt-4 pt-4 border-t border-gray-200", className)} {...props}>
         {children}
       </div>
     );

@@ -31,10 +31,10 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref
   ) => {
     const classes = cn(
-      "w-full rounded-lg border bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed resize-y min-h-[100px] dark:bg-gray-900",
+      "w-full rounded-lg border bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed resize-y min-h-[100px]",
       error
         ? "border-red-500 focus:ring-red-500"
-        : "border-gray-300 dark:border-gray-700",
+        : "border-gray-300",
       sizeClasses[textareaSize],
       className
     );

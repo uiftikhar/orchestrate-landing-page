@@ -214,20 +214,6 @@ html {
   --z-tooltip: 1070;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-default: rgb(10, 10, 10);
-    --background-neutral: rgb(23, 23, 23);
-    
-    --text-primary: rgb(255, 255, 255);
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --text-tertiary: rgba(255, 255, 255, 0.4);
-    
-    --text-inverted-primary: rgb(10, 10, 10);
-    --text-inverted-secondary: rgba(10, 10, 10, 0.6);
-    --text-inverted-tertiary: rgba(10, 10, 10, 0.4);
-  }
-}
 
 /* ============================================
    RESET & BASE STYLES
@@ -585,20 +571,6 @@ small {
   background: var(--gray-500);
 }
 
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: var(--gray-900);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--gray-600);
-    border-color: var(--gray-900);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--gray-500);
-  }
-}
 
 
 
