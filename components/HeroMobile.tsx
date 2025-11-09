@@ -206,7 +206,7 @@ export function HeroMobile() {
           </Heading>
           <Text
             size="base"
-            weight="semibold"
+            weight="medium"
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
@@ -263,7 +263,7 @@ export function HeroMobile() {
           </Heading>
           <Text
             size="base"
-            weight="semibold"
+            weight="medium"
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
@@ -321,7 +321,7 @@ export function HeroMobile() {
           </Heading>
           <Text
             size="base"
-            weight="semibold"
+            weight="medium"
             variant="secondary"
             className="leading-relaxed max-w-md"
           >
