@@ -92,7 +92,7 @@ export function HeroMobile() {
           <AnimatedSection delay={getStaggerDelay(0.5)}>
             <Text
               size="base"
-              weight="semibold"
+              weight="medium"
               variant="secondary"
               className="leading-relaxed max-w-md"
             >
