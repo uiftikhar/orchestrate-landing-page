@@ -18,8 +18,8 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Landing Page",
-  description: "Modern landing page built with Next.js",
+  title: "Orchestrate - Strategy Execution Platform for Product Teams",
+  description: "Turn product strategy into confident decisions. Orchestrate connects your OKRs to actionable delta proposals, validates them faster, and proves which changes actually moved metrics.",
 };
 
 export default function RootLayout({
