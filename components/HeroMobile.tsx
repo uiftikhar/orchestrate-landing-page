@@ -370,48 +370,6 @@ export function HeroMobile() {
         </figure>
       </section>
 
-      <section className="px-5 flex flex-col mb-15">
-        <article className="flex flex-col gap-3 pb-6">
-          <div className="flex items-center gap-3">
-            <GitMerge size={24} color="#FF8C00" className="flex-shrink-0" />
-            <Heading as="h6" weight="semibold" className="text-base">
-              Effortless organization
-            </Heading>
-          </div>
-          <Text variant="secondary" size="base" className="leading-relaxed">
-            Centralize all customer data for easy access and better management.
-          </Text>
-        </article>
-        <div className="border-b border-gray-200"></div>
-
-        {/* Feature 2: Boosted productivity */}
-        <article className="flex flex-col gap-3 pt-6 pb-6">
-          <div className="flex items-center gap-3">
-            <Flame size={24} color="#FF8C00" className="flex-shrink-0" />
-            <Heading as="h6" weight="semibold" className="text-base">
-              Boosted productivity
-            </Heading>
-          </div>
-          <Text variant="secondary" size="base" className="leading-relaxed">
-            Automate tasks to save time and focus on what truly matters.
-          </Text>
-        </article>
-        <div className="border-b border-gray-200"></div>
-
-        {/* Feature 3: Data-driven growth */}
-        <article className="flex flex-col gap-3 pt-6">
-          <div className="flex items-center gap-3">
-            <LineChart size={24} color="#FF8C00" className="flex-shrink-0" />
-            <Heading as="h6" weight="semibold" className="text-base">
-              Data-driven growth
-            </Heading>
-          </div>
-          <Text variant="secondary" size="base" className="leading-relaxed">
-            Leverage real-time analytics to make smarter, faster business decisions.
-          </Text>
-        </article>
-      </section>
-
       <section className="px-5 mb-15">
         <Card
           variant="outlined"

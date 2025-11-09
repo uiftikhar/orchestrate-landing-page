@@ -404,38 +404,6 @@ export function HeroTablet() {
             />
           </div>
         </figure>
-
-        <div className="flex gap-6 mt-6">
-          <article className="flex flex-col gap-3 pb-8 p-10">
-            <GitMerge size={24} color="#FF8C00" aria-hidden="true" />
-            <Heading as="h3" className="text-xl font-semibold">
-              Effortless organization
-            </Heading>
-            <Text variant="secondary" size="base" className="leading-relaxed">
-              Centralize all customer data for easy access and better management.
-            </Text>
-          </article>
-
-          <article className="flex flex-col gap-3 pb-8 p-10">
-            <Flame size={24} color="#FF8C00" aria-hidden="true" />
-            <Heading as="h3" className="text-xl font-semibold">
-              Boosted productivity
-            </Heading>
-            <Text variant="secondary" size="base" className="leading-relaxed">
-              Automate tasks to save time and focus on what truly matters.
-            </Text>
-          </article>
-
-          <article className="flex flex-col gap-3 p-10">
-            <LineChart size={24} color="#FF8C00" aria-hidden="true" />
-            <Heading as="h3" className="text-xl font-semibold">
-              Data-driven growth
-            </Heading>
-            <Text variant="secondary" size="base" className="leading-relaxed">
-              Leverage real-time analytics to make smarter, faster business decisions.
-            </Text>
-          </article>
-        </div>
       </section>
 
       {/* Pricing Section */}
