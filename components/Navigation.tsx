@@ -90,7 +90,7 @@ export function Navigation() {
             <div className="relative hidden md:block">
               <button
                 onClick={() => setAgenticToolsOpen(!agenticToolsOpen)}
-                className="flex mb-[3px] gap-2 text-sm text-gray-700 hover:text-gray-950 transition-colors"
+                className="flex items-center mb-[2px] gap-2 text-sm text-gray-700 hover:text-gray-950 transition-colors"
               >
                 Agentic Tools
                 <svg
