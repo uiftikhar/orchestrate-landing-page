@@ -77,22 +77,20 @@ export function Navigation() {
       <div className="px-4 sm:px-6 md:px-8 xl:px-30">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Left Section with Agentic Tools Dropdown */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-end gap-8">
             {/* Logo */}
             <a href="/" className="flex items-center">
               <img
                 src="/logo.svg"
                 alt="orchestrate"
-                width="120"
-                height="27"
-                className="h-[27px] w-auto"
+                className="h-[28px] w-auto"
               />
             </a>
             {/* Agentic Tools Dropdown */}
             <div className="relative hidden md:block">
               <button
                 onClick={() => setAgenticToolsOpen(!agenticToolsOpen)}
-                className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-950 transition-colors"
+                className="flex mb-[3px] gap-2 text-sm text-gray-700 hover:text-gray-950 transition-colors"
               >
                 Agentic Tools
                 <svg
